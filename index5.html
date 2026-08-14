@@ -1,0 +1,3244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef Saâd Fitat | Haute Gastronomie & Formations d'Élite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,400&family=Montserrat:wght@200;400;500;600&family=Noto+Kufi+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- BRANDING DESIGN SYSTEM & ROOT VARIABLES --- */
+        :root {
+            --bg-deep: #ffffff;
+            --bg-pure: #f8f9fa;
+            --gold-primary: #0d47a1;
+            --gold-light: #e3f2fd;
+            --gold-dark: #1565c0;
+            --text-light: #0a192f;
+            --text-muted: #546e7a;
+            --glass-card: rgba(255, 255, 255, 0.9);
+            --glass-border: rgba(13, 71, 161, 0.15);
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+            --font-arabic: 'Noto Kufi Arabic', sans-serif;
+            --curve: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* --- GLOBAL BASICS --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-pure);
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-deep);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 0 2.5rem;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* --- SCROLLBAR DESIGN --- */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-pure);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--bg-deep), var(--gold-primary));
+            border-radius: 4px;
+        }
+
+        /* --- STUNNING LIGHT GLOWS & REFLECTIONS (BACKGROUND) --- */
+        .ambient-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(13, 71, 161, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* --- STICKY TRANSPARENT NAVIGATION --- */
+        .header-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.8rem 0;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), transparent);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(13, 71, 161, 0.1);
+            transition: all 0.4s var(--curve);
+        }
+
+        .header-nav.sticky {
+            padding: 1rem 0;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid var(--glass-border);
+            backdrop-filter: blur(15px);
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-identity {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            font-weight: 500;
+            color: var(--gold-primary);
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+.nav-logo{
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    border-radius: 50%;
+}
+.footer-logo{
+    height: 90px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+        .brand-identity span {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            border-left: 1px solid rgba(13, 71, 161, 0.3);
+            padding-left: 12px;
+        }
+
+        .menu-links {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .menu-links a {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .menu-links a:hover,
+        .menu-links a.active {
+            color: var(--gold-primary);
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-right: 2rem;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(13, 71, 161, 0.2);
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            color: var(--text-muted);
+        }
+
+        .lang-btn:hover {
+            background: rgba(13, 71, 161, 0.1);
+            color: var(--gold-primary);
+        }
+
+        .lang-btn.active {
+            background: var(--gold-primary);
+            color: #ffffff;
+            border-color: var(--gold-primary);
+        }
+
+        .lang-divider {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* RTL Support */
+        [dir="rtl"] .menu-links {
+            flex-direction: row;
+        }
+
+        [dir="rtl"] .lang-switcher {
+            margin-right: 2rem;
+            margin-left: 0;
+        }
+
+        [dir="rtl"] .brand-identity {
+            flex-direction: row;
+        }
+
+        [dir="rtl"] .brand-identity span {
+            border-left: 1px solid rgba(13, 71, 161, 0.3);
+            border-right: none;
+            padding-left: 12px;
+            padding-right: 0;
+        }
+
+        /* Desktop RTL only */
+        @media (min-width: 769px) {
+            [dir="rtl"] .nav-flex {
+                flex-direction: row-reverse;
+            }
+        }
+
+        [dir="rtl"] .method-split {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        [dir="rtl"] .method-content {
+            text-align: right;
+        }
+
+        [dir="rtl"] .method-list li {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .method-image {
+            order: -1;
+        }
+
+        [dir="rtl"] .contact-split {
+            grid-template-columns: 1.2fr 1fr;
+        }
+
+        [dir="rtl"] .pane-row {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .dock-flex {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .dock-item {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .gallery-arrow.left {
+            left: auto;
+            right: 40px;
+        }
+
+        [dir="rtl"] .gallery-arrow.right {
+            right: auto;
+            left: 40px;
+        }
+
+        [dir="rtl"] .gallery-close {
+            right: auto;
+            left: 40px;
+        }
+
+        .menu-links a.btn-gold {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 50%, var(--gold-light) 100%);
+            color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(13, 71, 161, 0.2);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+        }
+
+        .menu-links a.btn-gold:hover {
+            box-shadow: 0 12px 25px rgba(13, 71, 161, 0.35);
+        }
+
+        .menu-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--gold-primary);
+            transition: width 0.3s ease;
+        }
+
+        .menu-links a:hover::after {
+            width: 100%;
+        }
+
+        /* --- PREVENT DEFENSIVE HEADERS --- */
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tagline {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--gold-primary);
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .title-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--gold-primary);
+            margin: 1.5rem auto 0 auto;
+        }
+
+        /* --- PREMIUM BUTTON DESIGN --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.1rem 2.4rem;
+            font-size: 0.8rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            font-weight: 500;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.4s var(--curve);
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 50%, var(--gold-light) 100%);
+            color: #ffffff;
+            padding: 0.9rem 1.8rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(13, 71, 161, 0.2);
+            transition: all 0.3s var(--curve);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(13, 71, 161, 0.35);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 0.9rem 1.8rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s var(--curve);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #ffffff;
+            transform: translateY(-3px);
+        }
+
+        /* --- 1. HERO ARCHITECTURE --- */
+        .hero {
+            position: relative;
+            min-height: 720px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* HERO BACKGROUND */
+        .hero-bg-media {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("images/fitat.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 55, 110, 0.55);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 70px 24px 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(13, 71, 161, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(13, 71, 161, 0.4);
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-bottom: 28px;
+        }
+
+        .hero-badge span {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-family: var(--font-sans);
+            font-size: 64px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.05;
+            margin: 0 0 28px;
+            color: #ffffff;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 400;
+            max-width: 720px;
+            margin: 0 0 36px;
+            text-align: center;
+        }
+
+        .training-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            width: 100%;
+            margin-bottom: 42px;
+        }
+
+        .training-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            padding: 0 24px;
+            font-size: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 999px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.3s var(--curve);
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 50%, var(--gold-light) 100%);
+            color: #ffffff;
+            border: none;
+            box-shadow: 0 4px 15px rgba(13, 71, 161, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(13, 71, 161, 0.35);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #ffffff;
+            transform: translateY(-3px);
+        }
+
+        .btn-cta {
+            background: rgba(227, 242, 253, 0.3);
+            color: var(--gold-primary);
+            border-color: rgba(13, 71, 161, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-cta:hover {
+            background: rgba(227, 242, 253, 0.5);
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 80px;
+            width: 100%;
+        }
+
+        .hero-stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-stat-item .stat-number {
+            font-family: var(--font-sans);
+            font-size: 48px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        .hero-stat-item .stat-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .hero-decorative-circle {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(13, 71, 161, 0.15) 0%, transparent 70%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            /* Mobile Header - Compact */
+            .header-nav {
+                padding: 12px 16px !important;
+                height: 64px;
+                min-height: 64px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .header-nav.sticky {
+                padding: 12px 16px !important;
+            }
+
+            .nav-flex {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .brand-identity {
+                font-size: 1.4rem;
+                gap: 8px;
+            }
+
+            .nav-logo {
+                height: 35px;
+            }
+
+            .brand-identity span {
+                font-size: 0.6rem;
+                padding-left: 8px;
+                letter-spacing: 1px;
+            }
+
+            /* Mobile menu button */
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                left: 16px;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 1001;
+                background: none;
+                border: none;
+                font-size: 24px;
+                color: var(--text-dark);
+                cursor: pointer;
+            }
+
+            /* Mobile menu links */
+            .menu-links {
+                display: none;
+                position: fixed;
+                top: 64px;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                padding: 20px;
+                gap: 16px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+                box-sizing: border-box;
+            }
+
+            .menu-links.show {
+                display: flex;
+            }
+
+            .menu-links a {
+                font-size: 14px;
+                padding: 12px;
+                text-align: center;
+            }
+
+            /* Mobile Hero - Complete Redesign */
+            .hero {
+                height: auto;
+                min-height: auto;
+                padding: 0 0 20px;
+                margin-top: 0;
+                width: 100%;
+                max-width: none;
+                overflow-x: hidden;
+                box-sizing: border-box;
+            }
+
+            .hero-bg-media {
+                background-position: center 25%;
+                background-size: cover;
+            }
+
+            .hero-overlay {
+                background: linear-gradient(180deg, rgba(13, 71, 161, 0.8) 0%, rgba(0, 0, 0, 0.7) 100%);
+            }
+
+            .hero-content {
+                padding: 80px 16px 25px;
+                max-width: none !important;
+                width: 100%;
+                margin: 0 !important;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-height: auto;
+                overflow-x: hidden;
+                box-sizing: border-box;
+            }
+
+            .hero-badge {
+                padding: 4px 12px;
+                margin-bottom: 10px;
+            }
+
+            .hero-badge span {
+                font-size: 9px;
+            }
+
+            .hero-title {
+                font-size: 24px;
+                line-height: 1.25;
+                margin-bottom: 10px;
+                padding: 0 8px;
+                text-align: center;
+                max-width: 100%;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                box-sizing: border-box;
+            }
+
+            .hero-description {
+                font-size: 14px;
+                line-height: 1.5;
+                margin-bottom: 16px;
+                padding: 0 8px;
+                max-width: 100%;
+                text-align: center;
+                box-sizing: border-box;
+            }
+
+            .training-buttons {
+                gap: 8px;
+                margin-bottom: 16px;
+                width: 90%;
+                max-width: 320px;
+                box-sizing: border-box;
+            }
+
+            .training-row {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+                box-sizing: border-box;
+            }
+
+            .btn {
+                width: 100%;
+                height: 44px;
+                min-height: 44px;
+                font-size: 12px;
+                padding: 0 14px;
+                border-radius: 22px;
+                box-sizing: border-box;
+            }
+
+            .btn-cta {
+                margin-top: 14px;
+                width: 75%;
+                height: 46px;
+                min-height: 46px;
+                font-size: 13px;
+                box-sizing: border-box;
+            }
+
+            .hero-stats {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+                justify-content: space-around;
+                padding: 0 16px;
+                margin-top: 16px;
+                margin-bottom: 0;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .hero-stat-item {
+                min-width: auto;
+                flex: none;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                box-sizing: border-box;
+            }
+
+            .hero-stat-item .stat-number {
+                font-size: 22px;
+                margin-bottom: 2px;
+            }
+
+            .hero-stat-item .stat-label {
+                font-size: 8px;
+                letter-spacing: 0.3px;
+            }
+
+            .hero-decorative-circle {
+                width: 150px;
+                height: 150px;
+            }
+
+            /* RTL Mobile - Force same structure as French */
+            [dir="rtl"] .menu-links {
+                flex-direction: column !important;
+                align-items: center !important;
+                left: 0 !important;
+                right: auto !important;
+            }
+
+            [dir="rtl"] .nav-flex {
+                flex-direction: row !important;
+                justify-content: space-between !important;
+            }
+
+            [dir="rtl"] .brand-identity {
+                flex-direction: row !important;
+            }
+
+            [dir="rtl"] .brand-identity span {
+                border-left: 1px solid rgba(13, 71, 161, 0.3) !important;
+                border-right: none !important;
+                padding-left: 8px !important;
+                padding-right: 0 !important;
+            }
+
+            /* Keep hamburger on LEFT for both French and Arabic */
+            [dir="rtl"] .mobile-menu-btn {
+                left: 16px;
+                right: auto;
+            }
+
+            /* RTL Mobile Hero - Text direction only, NO layout changes */
+            [dir="rtl"] .hero-title {
+                direction: rtl;
+                text-align: center;
+            }
+
+            [dir="rtl"] .hero-description {
+                direction: rtl;
+                text-align: center;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+            [dir="rtl"] .btn {
+                direction: rtl;
+                text-align: center;
+            }
+
+            [dir="rtl"] .btn-cta {
+                direction: rtl;
+                text-align: center;
+            }
+
+            [dir="rtl"] .hero-stat-item {
+                direction: rtl;
+                text-align: center;
+            }
+
+            /* Fix white gap after hero on mobile */
+            .about {
+                padding: 3rem 0;
+            }
+        }
+
+        /* --- 2. ABOUT ARCHITECTURE --- */
+        .about {
+            padding: 10rem 0;
+            position: relative;
+        }
+
+        .about-split {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .about-display {
+            position: relative;
+        }
+
+        .frame-deco {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 80%;
+            height: 90%;
+            border: 1px solid var(--gold-primary);
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        .about-img-wrap {
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 30px 60px rgba(13, 71, 161, 0.15);
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .about-img-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            filter: brightness(0.85) contrast(1.05);
+            transition: transform 0.8s var(--curve);
+        }
+
+        .about-display:hover img {
+            transform: scale(1.04);
+        }
+
+        .about-info h3 {
+            font-family: var(--font-serif);
+            font-size: 3.8rem;
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        .about-info p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .stamp-row {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3.5rem;
+        }
+
+        .stamp-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .stamp-box i {
+            font-size: 1.8rem;
+            color: var(--gold-primary);
+        }
+
+        .stamp-box div h5 {
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .stamp-box div p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* --- 3. CINEMATIC GALLERY ARCHITECTURE --- */
+        .gallery {
+            padding: 8rem 0;
+            background: var(--bg-pure);
+        }
+
+        /* Ambient subtle soundwave design element */
+        .soundwave-visual {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            height: 24px;
+            margin-top: 1.5rem;
+        }
+
+        .soundwave-visual span {
+            width: 2px;
+            background: var(--gold-primary);
+            animation: pulseWave 1s infinite alternate ease-in-out;
+        }
+        .soundwave-visual span:nth-child(2) { animation-delay: 0.2s; }
+        .soundwave-visual span:nth-child(3) { animation-delay: 0.4s; }
+        .soundwave-visual span:nth-child(4) { animation-delay: 0.1s; }
+        .soundwave-visual span:nth-child(5) { animation-delay: 0.3s; }
+
+        @keyframes pulseWave {
+            0% { transform: scaleY(0.2); }
+            100% { transform: scaleY(1); }
+        }
+
+        .gallery-masonry {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .size-small { grid-column: span 4; }
+        .size-medium { grid-column: span 6; }
+        .size-large { grid-column: span 8; }
+
+        .media-container {
+            position: relative;
+            width: 100%;
+            height: 380px;
+        }
+
+        .media-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s var(--curve);
+        }
+
+        .item-glass-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.2) 70%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2.5rem;
+            opacity: 1;
+            transition: all 0.4s ease;
+        }
+
+        .item-glass-overlay .cat-tag {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .item-glass-overlay h4 {
+            font-family: var(--font-serif);
+            font-size: 1.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+            line-height: 1.3;
+        }
+
+        .play-indicator {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.7);
+            width: 65px;
+            height: 65px;
+            background: rgba(7, 7, 8, 0.8);
+            border: 1px solid var(--gold-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-primary);
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: all 0.4s var(--curve);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .gallery-item:hover .media-container img {
+            transform: scale(1.06);
+        }
+
+        .gallery-item:hover .play-indicator {
+            opacity: 1;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* --- 4. PACKS ARCHITECTURE --- */
+        .packs {
+            padding: 10rem 0;
+            position: relative;
+        }
+
+        .packs-flex {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            align-items: stretch;
+        }
+
+        .pack-premium-card {
+            background: var(--glass-card);
+            border: 1px solid var(--glass-border);
+            padding: 4rem 2.5rem;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s var(--curve);
+        }
+
+        /* Luxury spotlight reflection trace */
+        .pack-premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .pack-premium-card:hover::before {
+            left: 100%;
+        }
+
+        .pack-premium-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(13, 71, 161, 0.4);
+            box-shadow: 0 20px 40px rgba(13, 71, 161, 0.1);
+        }
+
+        .pack-premium-card.featured {
+            border: 1px solid var(--gold-primary);
+            background: rgba(227, 242, 253, 0.5);
+            transform: scale(1.04);
+        }
+        
+        .pack-premium-card.featured:hover {
+            transform: scale(1.04) translateY(-10px);
+            box-shadow: 0 25px 50px rgba(13, 71, 161, 0.15);
+        }
+
+        .star-ribbon {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: var(--gold-primary);
+            color: #ffffff;
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            letter-spacing: 1.5px;
+            border-radius: 2px;
+        }
+
+        .pack-meta h3 {
+            font-family: var(--font-serif);
+            font-size: 2.4rem;
+            font-weight: 400;
+            margin-bottom: 0.3rem;
+        }
+
+        .pack-time {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        .pack-price {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 500;
+            margin: 2.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 1.5rem;
+        }
+
+        .pack-price span {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            margin-left: 5px;
+        }
+
+        .pack-list {
+            list-style: none;
+            margin-bottom: 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .pack-list li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .pack-list li i {
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+        }
+
+        .btn-pack-action {
+            margin-top: auto;
+            width: 100%;
+        }
+
+        /* --- 5. TESTIMONIALS ARCHITECTURE --- */
+        .reviews {
+            padding: 8rem 0;
+            background: var(--bg-pure);
+            text-align: center;
+        }
+
+        .review-box {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .quote-icon {
+            font-size: 2.5rem;
+            color: rgba(13, 71, 161, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .review-text {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+        }
+
+        .review-author h5 {
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .review-author span {
+            font-size: 0.75rem;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- 6. SOCIAL NETWORK DOCK --- */
+
+.method-section{
+    padding: 100px 0;
+    background: linear-gradient(to right, #ffffff, #f8f9fa);
+    position: relative;
+}
+
+.method-split{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.method-content h2{
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--gold-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.method-content p{
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    max-width: 550px;
+}
+
+.method-list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.method-list li{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--text-light);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.method-list li i{
+    color: var(--gold-primary);
+    font-size: 1.1rem;
+    background: rgba(13, 71, 161, 0.1);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.method-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(13, 71, 161, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(13, 71, 161, 0.06);
+}
+
+.method-image img{
+    max-width: 280px;
+    max-height: 280px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+@media(max-width: 1024px){
+    .method-split{
+        gap: 4rem;
+    }
+    
+    .method-content h2{
+        font-size: 2.5rem;
+    }
+}
+
+@media(max-width: 768px){
+    .method-split{
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .method-content h2{
+        font-size: 2rem;
+    }
+    
+    .method-content p{
+        font-size: 1rem;
+        max-width: 100%;
+    }
+    
+    .method-image{
+        padding: 2rem;
+    }
+    
+    .method-image img{
+        max-height: 200px;
+    }
+}
+
+.social-dock {
+            padding: 4.5rem 0;
+            background: linear-gradient(to right, #e3f2fd, #f8f9fa, #e3f2fd);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+            text-align: center;
+        }
+
+        .social-dock h4 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .dock-flex {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+        }
+
+        .dock-item {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .dock-item:hover {
+            color: var(--gold-primary);
+        }
+
+        .dock-item i {
+            font-size: 1.2rem;
+        }
+
+        /* --- 7. CONTACT & FORM ARCHITECTURE --- */
+        .contact {
+            padding: 10rem 0;
+        }
+
+        .contact-split {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 6rem;
+        }
+
+        .contact-details h3 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details p {
+            color: var(--text-muted);
+            margin-bottom: 4rem;
+        }
+
+        .card-info-pane {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .pane-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .pane-row .icon-wrapper {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-primary);
+            font-size: 1.1rem;
+        }
+
+        .pane-row h6 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 0.2rem;
+        }
+
+        .pane-row p {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .map-frame-box {
+            height: 190px;
+            background: rgba(13, 71, 161, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .map-frame-box i {
+            font-size: 1.8rem;
+            color: var(--gold-primary);
+        }
+
+        /* Luxury Animated Fields Blueprint */
+        .form-panel {
+            background: var(--glass-card);
+            border: 1px solid var(--glass-border);
+            padding: 4rem 3.5rem;
+            border-radius: 4px;
+            backdrop-filter: blur(15px);
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 2.8rem;
+        }
+
+        .input-group input,
+        .input-group textarea,
+        .input-group select {
+            width: 100%;
+            padding: 0.8rem 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(13, 71, 161, 0.3);
+            color: var(--text-light);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.4s ease;
+        }
+
+        .input-group select {
+            background: var(--bg-deep);
+            cursor: pointer;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            border-color: var(--gold-primary);
+        }
+
+        .input-group label {
+            position: absolute;
+            top: 0.8rem;
+            left: 0;
+            color: var(--text-muted);
+            pointer-events: none;
+            transition: all 0.3s var(--curve);
+            font-size: 0.9rem;
+        }
+
+        /* Pure CSS active label transition triggers */
+        .input-group input:focus ~ label,
+        .input-group input:not(:placeholder-shown) ~ label,
+        .input-group textarea:focus ~ label,
+        .input-group textarea:not(:placeholder-shown) ~ label {
+            top: -15px;
+            font-size: 0.7rem;
+            color: var(--gold-primary);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* --- 8. FOOTER ARCHITECTURE --- */
+        .main-footer {
+            padding: 5rem 0;
+            background: #0a192f;
+            text-align: center;
+            border-top: 1px solid rgba(13, 71, 161, 0.2);
+        }
+
+        .footer-sig {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--gold-primary);
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-line {
+            width: 50px;
+            height: 1px;
+            background: var(--glass-border);
+            margin: 0 auto 2rem auto;
+        }
+
+        .footer-copy {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* --- FLOATING ACCESSIBILITY UTILITIES --- */
+        .whatsapp-link {
+            position: fixed;
+            bottom: 35px;
+            right: 35px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            z-index: 999;
+            transition: transform 0.3s var(--curve);
+        }
+
+        .whatsapp-link:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        /* --- BASIC SYSTEM KEYFRAME ANIMATIONS --- */
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- RESPONSIVE ADAPTABILITY SYSTEM --- */
+        @media (max-width: 1100px) {
+            .hero h1 { font-size: 4.5rem; }
+            .about-split, .contact-split { grid-template-columns: 1fr; gap: 4.5rem; }
+            .packs-flex { grid-template-columns: 1fr; gap: 3rem; }
+            .pack-premium-card.featured { transform: scale(1); }
+            .pack-premium-card.featured:hover { transform: translateY(-10px); }
+        }
+
+       /* MENU TELEPHONE */
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.6rem;
+    color: var(--gold-primary);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .menu-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+
+        padding: 2rem 0;
+
+        display: none;
+    }
+
+    .menu-links.show {
+        display: flex;
+    }
+
+    /* RTL Mobile - Force same structure as French */
+    [dir="rtl"] .menu-links {
+        flex-direction: column !important;
+        align-items: center !important;
+        left: 0 !important;
+        right: auto !important;
+    }
+
+    [dir="rtl"] .nav-flex {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+    }
+
+    [dir="rtl"] .brand-identity {
+        flex-direction: row !important;
+    }
+
+    [dir="rtl"] .brand-identity span {
+        border-left: 1px solid rgba(13, 71, 161, 0.3) !important;
+        border-right: none !important;
+        padding-left: 12px !important;
+        padding-right: 0 !important;
+    }
+
+    /* RTL Mobile Fixes */
+    [dir="rtl"] .hero h1 {
+        font-size: 2.2rem;
+        line-height: 1.4;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    [dir="rtl"] .hero-description {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        padding: 0 1rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    [dir="rtl"] .training-row {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    [dir="rtl"] .btn {
+        width: 100%;
+        max-width: 280px;
+        font-size: 14px;
+        padding: 0 16px;
+        white-space: normal;
+        word-wrap: break-word;
+    }
+
+    [dir="rtl"] .hero-stats {
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    [dir="rtl"] .hero-stat-item {
+        min-width: 80px;
+    }
+
+    [dir="rtl"] .hero-stat-item .stat-number {
+        font-size: 2rem;
+    }
+
+    [dir="rtl"] .hero-stat-item .stat-label {
+        font-size: 0.75rem;
+        text-align: center;
+        word-wrap: break-word;
+    }
+
+    [dir="rtl"] .section-header h2 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    [dir="rtl"] .section-header p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        padding: 0 1rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    [dir="rtl"] .service-card,
+    [dir="rtl"] .formation-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    [dir="rtl"] .service-content h3,
+    [dir="rtl"] .formation-content h3 {
+        font-size: 1.2rem;
+        line-height: 1.4;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    [dir="rtl"] .service-content p,
+    [dir="rtl"] .formation-content p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    [dir="rtl"] .about-info h3 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    [dir="rtl"] .about-info p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    [dir="rtl"] .contact-details h3 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    [dir="rtl"] .contact-details p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    [dir="rtl"] .method-content h2 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    [dir="rtl"] .method-content p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    [dir="rtl"] .method-list li {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    [dir="rtl"] .dock-flex {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    [dir="rtl"] .dock-item {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.9rem;
+    }
+
+    [dir="rtl"] .form-panel {
+        padding: 2rem 1rem;
+    }
+
+    [dir="rtl"] .form-panel input,
+    [dir="rtl"] .form-panel textarea,
+    [dir="rtl"] .form-panel select {
+        font-size: 1rem;
+        padding: 0.75rem;
+    }
+
+    [dir="rtl"] .footer-nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    [dir="rtl"] .footer-nav a {
+        font-size: 0.85rem;
+    }
+
+    [dir="rtl"] .footer-copy {
+        font-size: 0.75rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+
+    .hero-action-row {
+        flex-direction: column;
+    }
+
+    .section-header h2,
+    .about-info h3,
+    .contact-details h3 {
+        font-size: 2.5rem;
+    }
+
+    .size-small,
+    .size-medium,
+    .size-large {
+        grid-column: span 12;
+    }
+
+    .dock-flex {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .form-panel {
+        padding: 3rem 2rem;
+    }
+}
+
+.hero-action-row{
+
+    position:absolute;
+
+    bottom:50px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+    gap:1.5rem;
+
+    justify-content:center;
+
+    z-index:10;
+}
+.media-container video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition: transform 0.8s var(--curve);
+}
+
+.gallery-item:hover .media-container video{
+    transform: scale(1.06);
+}
+@media (max-width:768px){
+
+    .footer-logo{
+        height: 75px;
+    }
+
+}
+.stats-section{
+    padding:100px 0;
+    background:#050505;
+    border-top:1px solid rgba(212,175,55,0.08);
+    border-bottom:1px solid rgba(212,175,55,0.08);
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+
+.stat-card{
+    text-align:center;
+    padding:40px 20px;
+    background:rgba(15,15,17,0.65);
+    border:1px solid rgba(212,175,55,0.10);
+    backdrop-filter:blur(15px);
+    transition:.4s ease;
+}
+
+.stat-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(212,175,55,0.4);
+}
+
+.stat-card h3{
+    display:inline-block;
+    font-family:var(--font-serif);
+    font-size:4rem;
+    color:var(--gold-primary);
+    font-weight:500;
+}
+
+.stat-card span{
+    font-family:var(--font-serif);
+    font-size:3rem;
+    color:var(--gold-primary);
+}
+
+.stat-card p{
+    margin-top:10px;
+    color:var(--text-muted);
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:.8rem;
+}
+
+@media(max-width:768px){
+
+.hero-action-row{
+
+        bottom:30px;
+
+        flex-direction:column;
+
+        width:90%;
+    }
+
+    .hero-action-row .btn{
+        width:100%;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stat-card h3{
+        font-size:3rem;
+    }
+
+}
+/* SERVICES + BRANDS */
+
+.services-section,
+.brands-section{
+    padding:100px 0;
+    position:relative;
+}
+
+.services-grid,
+.brands-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    gap:30px;
+}
+
+.service-card,
+.brand-card{
+    background:var(--glass-card);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(20px);
+    overflow:hidden;
+    transition:all .4s var(--curve);
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover,
+.brand-card:hover{
+    transform:translateY(-10px);
+    border-color:rgba(212,175,55,.4);
+    box-shadow:0 20px 40px rgba(212,175,55,.08);
+}
+
+.service-card img,
+.brand-card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+}
+
+.service-content,
+.brand-content{
+    padding:30px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.service-content h3,
+.brand-content h3{
+    font-family:var(--font-serif);
+    font-size:2rem;
+    margin-bottom:12px;
+}
+
+.service-content p,
+.brand-content p{
+    color:var(--text-muted);
+    margin-bottom:25px;
+    flex: 1;
+}
+
+.service-content .btn,
+.brand-content .btn{
+    width:100%;
+    margin-top: auto;
+    background: transparent;
+    color: var(--gold-primary);
+    border: 2px solid var(--gold-primary);
+    padding: 0.9rem 1.8rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s var(--curve);
+    text-align: center;
+}
+
+.service-content .btn:hover,
+.brand-content .btn:hover{
+    background: var(--gold-primary);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+@media(max-width:768px){
+
+    .services-grid,
+    .brands-grid,
+    .formations-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+/* FORMATIONS SECTION */
+
+.formations-section{
+    padding:100px 0;
+    position:relative;
+}
+
+.formations-grid{
+    display:grid;
+    grid-template-columns:repeat(6, 1fr);
+    gap:30px;
+}
+
+.formation-card:nth-child(1),
+.formation-card:nth-child(2),
+.formation-card:nth-child(3){
+    grid-column: span 2;
+}
+
+.formation-card:nth-child(4),
+.formation-card:nth-child(5){
+    grid-column: span 3;
+}
+
+.formation-card{
+    background:var(--glass-card);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(20px);
+    overflow:hidden;
+    transition:all .4s var(--curve);
+    display: flex;
+    flex-direction: column;
+    border-radius:12px;
+    box-shadow:0 4px 20px rgba(13, 71, 161, 0.08);
+}
+
+.formation-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(13, 71, 161, 0.3);
+    box-shadow:0 20px 50px rgba(13, 71, 161, 0.15);
+}
+
+.formation-card:hover img{
+    transform:scale(1.05);
+}
+
+.formation-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    transition:transform .4s var(--curve);
+}
+
+.formation-content{
+    padding:28px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.formation-content h3{
+    font-family:var(--font-serif);
+    font-size:1.4rem;
+    margin-bottom:12px;
+    color: var(--gold-primary);
+    font-weight: 600;
+}
+
+.formation-content p{
+    color:var(--text-muted);
+    margin-bottom:25px;
+    flex: 1;
+    min-height: 85px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.formation-content .btn{
+    width:100%;
+    margin-top: auto;
+    background: transparent;
+    color: var(--gold-primary);
+    border: 2px solid var(--gold-primary);
+    padding: 0.85rem 1.8rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s var(--curve);
+    text-align: center;
+}
+
+.formation-content .btn:hover{
+    background: var(--gold-primary);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(13, 71, 161, 0.25);
+}
+
+@media(max-width:1024px){
+    .formations-grid{
+        grid-template-columns:repeat(2, 1fr);
+    }
+    
+    .formation-card:nth-child(1),
+    .formation-card:nth-child(2),
+    .formation-card:nth-child(3),
+    .formation-card:nth-child(4),
+    .formation-card:nth-child(5){
+        grid-column: span 1;
+    }
+}
+
+@media(max-width:768px){
+    .formations-grid{
+        grid-template-columns:1fr;
+    }
+    
+    .formation-card:nth-child(1),
+    .formation-card:nth-child(2),
+    .formation-card:nth-child(3),
+    .formation-card:nth-child(4),
+    .formation-card:nth-child(5){
+        grid-column: span 1;
+    }
+    
+    .formation-card img{
+        height:200px;
+    }
+    
+    .formation-content{
+        padding:24px;
+    }
+    
+    .formation-content h3{
+        font-size:1.2rem;
+    }
+    
+    .formation-content p{
+        min-height: auto;
+        font-size: 0.9rem;
+    }
+}
+
+.lux-gallery{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.96);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+}
+
+.lux-gallery.show{
+    display:flex;
+}
+
+.lux-gallery img{
+    max-width:80%;
+    max-height:80vh;
+    object-fit:contain;
+    border:2px solid rgba(212,175,55,.3);
+    box-shadow:0 0 40px rgba(212,175,55,.15);
+}
+
+.gallery-close{
+    position:absolute;
+    top:30px;
+    right:40px;
+    color:white;
+    font-size:50px;
+    cursor:pointer;
+}
+
+.gallery-arrow{
+    position:absolute;
+    background:none;
+    border:none;
+    color:#d4af37;
+    font-size:40px;
+    cursor:pointer;
+}
+
+.gallery-arrow.left{
+    left:40px;
+}
+
+.gallery-arrow.right{
+    right:40px;
+}
+
+.gallery-counter{
+    position:absolute;
+    bottom:35px;
+    color:white;
+    letter-spacing:3px;
+}
+ </style>
+
+</head>
+<body>
+
+    <div class="ambient-glow" style="top: 15vh; left: -10vw;"></div>
+    <div class="ambient-glow" style="top: 120vh; right: -10vw;"></div>
+
+    <a href="https://wa.me/212620007204" class="whatsapp-link" target="_blank" aria-label="Contact WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <nav class="header-nav" id="mainNav">
+        <div class="container nav-flex">
+            <a href="index.html" class="brand-identity">
+                <img src="logo.jpg" alt="FITAT Logo" class="nav-logo">
+                <span>FITAT</span>
+            </a>
+<div class="mobile-menu-btn" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+</div>
+            <div class="menu-links">
+                <a href="#hero" class="active" data-i18n="nav.home">Accueil</a>
+                <a href="#services" data-i18n="nav.services">Services</a>
+                <a href="#gallery" data-i18n="nav.gallery">Réalisation</a>
+                <a href="#about" data-i18n="nav.about">À propos</a>
+                <a href="#contact" class="btn btn-gold" data-i18n="nav.contact">Contact</a>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="fr" onclick="switchLanguage('fr')">FR</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="ar" onclick="switchLanguage('ar')">العربية</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero">
+        <div class="hero-bg-media"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span data-i18n="hero.badge">CENTRE DE FORMATION AGREE</span>
+            </div>
+            <h1 class="hero-title" data-i18n="hero.title">FORMEZ-VOUS AUX MÉTIERS QUI<br>RECRUTENT</h1>
+            <p class="hero-description" data-i18n="hero.description">
+                FITAT Formation accompagne les jeunes et les professionnels avec des parcours pratiques, encadrés par des formateurs experts et orientés vers l'emploi.
+            </p>
+            
+            <div class="training-buttons">
+                <div class="training-row">
+                    <a href="formation.html?f=coiffure" class="btn btn-primary" data-i18n="hero.btn.coiffure">Coiffure & Esthétique</a>
+                    <a href="formation.html?f=couture" class="btn btn-primary" data-i18n="hero.btn.couture">Couture & Stylisme</a>
+                    <a href="formation.html?f=patisserie" class="btn btn-secondary" data-i18n="hero.btn.patisserie">Pâtisserie & Cuisine</a>
+                    <a href="formation.html?f=informatique" class="btn btn-secondary" data-i18n="hero.btn.informatique">Informatique & Bureautique</a>
+                </div>
+                <div class="training-row">
+                    <a href="formation.html?f=electricite" class="btn btn-secondary" data-i18n="hero.btn.electricite">Électricité & Maintenance</a>
+                    <a href="#contact" class="btn btn-cta" data-i18n="hero.btn.register">S'inscrire maintenant →</a>
+                </div>
+            </div>
+
+            <div class="hero-stats">
+                <div class="hero-stat-item">
+                    <span class="stat-number" data-i18n="hero.stat1">+1200</span>
+                    <span class="stat-label" data-i18n="hero.stat1label">STAGIAIRES FORMÉS</span>
+                </div>
+                <div class="hero-stat-item">
+                    <span class="stat-number" data-i18n="hero.stat2">+15</span>
+                    <span class="stat-label" data-i18n="hero.stat2label">FILIÈRES</span>
+                </div>
+                <div class="hero-stat-item">
+                    <span class="stat-number" data-i18n="hero.stat3">92%</span>
+                    <span class="stat-label" data-i18n="hero.stat3label">TAUX DE RÉUSSITE</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-decorative-circle"></div>
+    </header>
+
+    <section id="about" class="about">
+        <div class="container about-split">
+            <div class="about-display">
+                <div class="frame-deco"></div>
+                <div class="about-img-wrap">
+                    <img src="images/chef7.png" alt="Chef Saâd Fitat">
+                </div>
+            </div>
+            <div class="about-info">
+                <span class="tagline" data-i18n="about.tagline">Philosophie Culinaire</span>
+                <h3 data-i18n="about.title">L'harmonie parfaite du goût & du geste</h3>
+                <p data-i18n="about.p1">Ambassadeur d'une cuisine à la fois moderne et profondément enracinée, le <strong>Chef Saâd Fitat</strong> réinvente l'art culinaire à travers une vision contemporaine exclusive. Chaque assiette est pensée comme une œuvre éphémère, mariant la générosité légendaire de la gastronomie marocaine aux exigences de la haute cuisine internationale.</p>
+                <p data-i18n="about.p2">En tant que formateur et consultant d'élite, il transmet à ses paires et étudiants la rigueur du geste technique millimétré, le respect absolu du produit brut et l'audace créative.</p>
+                
+                <div class="stamp-row">
+                    <div class="stamp-box">
+                        <i class="fas fa-award"></i>
+                        <div>
+                            <h5 data-i18n="about.stamp1">Haute Gastronomie</h5>
+                            <p data-i18n="about.stamp1desc">Standard de Palace</p>
+                        </div>
+                    </div>
+                    <div class="stamp-box">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div>
+                            <h5 data-i18n="about.stamp2">Transmission</h5>
+                            <p data-i18n="about.stamp2desc">+500 Élèves Formés</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="stats-section">
+    <div class="container">
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <h3 class="counter" data-target="500">0</h3>
+                <span>+</span>
+                <p data-i18n="stats.stat1label">Étudiants Formés</p>
+            </div>
+
+            <div class="stat-card">
+                <h3 class="counter" data-target="12">0</h3>
+                <span>+</span>
+                <p data-i18n="stats.stat2label">Ans d'Expérience</p>
+            </div>
+
+            <div class="stat-card">
+                <h3 class="counter" data-target="150">0</h3>
+                <span>+</span>
+                <p data-i18n="stats.stat3label">Événements Culinaires</p>
+            </div>
+
+            <div class="stat-card">
+                <h3 class="counter" data-target="50">0</h3>
+                <span>+</span>
+                <p data-i18n="stats.stat4label">Restaurants Accompagnés</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+    <section id="gallery" class="gallery">
+    <div class="container">
+
+        <div class="section-header">
+            <span class="tagline" data-i18n="gallery.tagline">Atmosphère</span>
+            <h2 data-i18n="gallery.title">Créations & Réalisations</h2>
+
+            <div class="soundwave-visual">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+
+            <div class="title-divider"></div>
+        </div>
+
+        <div class="gallery-masonry">
+
+            <!-- VIDEO 1 -->
+            <div class="gallery-item size-small">
+                <div class="media-container">
+
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/video1.mp4" type="video/mp4">
+                    </video>
+
+                    <div class="item-glass-overlay">
+                        <span class="cat-tag" data-i18n="gallery.tag1">Gastronomie marocaine</span>
+                        <h4 data-i18n="gallery.title1">Le Terroir Moderne</h4>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- VIDEO -->
+<div class="gallery-item size-medium">
+    <div class="media-container">
+
+        <video autoplay muted loop playsinline>
+            <source src="videos/video4.mp4" type="video/mp4">
+        </video>
+
+        <div class="item-glass-overlay">
+            <span class="cat-tag" data-i18n="gallery.tag2">Cuisine internationale</span>
+            <h4 data-i18n="gallery.title2">Fusions Contemporaines</h4>
+        </div>
+
+    </div>
+</div>
+
+            <!-- VIDEO 2 -->
+            <div class="gallery-item size-small">
+                <div class="media-container">
+
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/video2.mp4" type="video/mp4">
+                    </video>
+
+                    <div class="item-glass-overlay">
+                        <span class="cat-tag" data-i18n="gallery.tag3">Dressage professionnel</span>
+                        <h4 data-i18n="gallery.title3">Géométrie du Goût</h4>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- VIDEO LARGE -->
+            <div class="gallery-item size-large">
+                <div class="media-container">
+
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/video3.mp4" type="video/mp4">
+                    </video>
+
+                    <div class="item-glass-overlay">
+                        <span class="cat-tag" data-i18n="gallery.tag4">Formations culinaires</span>
+                        <h4 data-i18n="gallery.title4">Transmission des Techniques Masters</h4>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- VIDEO -->
+<div class="gallery-item size-small">
+    <div class="media-container">
+
+        <video autoplay muted loop playsinline>
+            <source src="videos/video5.mp4" type="video/mp4">
+        </video>
+
+        <div class="item-glass-overlay">
+            <span class="cat-tag" data-i18n="gallery.tag5">Événements & Prestations</span>
+            <h4 data-i18n="gallery.title5">Dîners Privés d'Exception</h4>
+        </div>
+
+    </div>
+</div>
+
+        </div>
+    </div>
+</section>
+<section id="services" class="services-section">
+
+    <div class="container">
+
+        <div class="section-header">
+            <span class="tagline" data-i18n="services.tagline">Expertise</span>
+            <h2 data-i18n="services.title">NOS SERVICES</h2>
+            <p style="color: var(--text-muted); font-size: 1rem; margin-top: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;" data-i18n="services.desc">Un groupe, cinq pôles d'expertise au service des professionnels de la formation et de la restauration.</p>
+            <div class="title-divider"></div>
+        </div>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+
+                <img src="images/Bureau%20de%20consultation.png">
+
+                <div class="service-content">
+
+                    <h3 data-i18n="services.service1">Bureau de consultation</h3>
+
+                    <p data-i18n="services.service1desc">
+                        Diagnostic, stratégie et accompagnement pour structurer et développer votre activité.
+                    </p>
+
+                    <a href="service.html?s=consultation"
+                       class="btn btn-outline" data-i18n="services.btn">
+                       Voir les détails →
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="service-card">
+
+                <img src="images/Centre%20de%20formation.png">
+
+                <div class="service-content">
+
+                    <h3 data-i18n="services.service2">Centre de formation</h3>
+
+                    <p data-i18n="services.service2desc">
+                        6 filières professionnelles certifiantes, 70% de pratique, formateurs experts du terrain.
+                    </p>
+
+                    <a href="service.html?s=formation"
+                       class="btn btn-outline" data-i18n="services.btn">
+                       Voir les détails →
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="service-card">
+
+                <img src="images/service3.jpg">
+
+                <div class="service-content">
+
+                    <h3 data-i18n="services.service3">Traiteur</h3>
+
+                    <p data-i18n="services.service3desc">
+                        Prestations traiteur sur mesure pour vos mariages, séminaires et événements d'entreprise.
+                    </p>
+
+                    <a href="service.html?s=traiteur"
+                       class="btn btn-outline" data-i18n="services.btn">
+                       Voir les détails →
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="service-card">
+
+                <img src="images/Logiciel%20de%20gestion.png">
+
+                <div class="service-content">
+
+                    <h3 data-i18n="services.service4">Logiciel de gestion</h3>
+
+                    <p data-i18n="services.service4desc">
+                        Un outil simple et fiable pour piloter stocks, facturation et réservations au quotidien.
+                    </p>
+
+                    <a href="service.html?s=logiciel"
+                       class="btn btn-outline" data-i18n="services.btn">
+                       Voir les détails →
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="service-card">
+
+                <img src="images/Cr%C3%A9ation%20des%20menus.png">
+
+                <div class="service-content">
+
+                    <h3 data-i18n="services.service5">Création des menus</h3>
+
+                    <p data-i18n="services.service5desc">
+                        Conception de cartes et menus sur mesure, alignés avec votre identité et vos prix.
+                    </p>
+
+                    <a href="service.html?s=menus"
+                       class="btn btn-outline" data-i18n="services.btn">
+                       Voir les détails →
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="formations-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="tagline" data-i18n="formations.tagline">Excellence</span>
+                <h2 data-i18n="formations.title">NOS FORMATIONS</h2>
+                <p style="color: var(--text-muted); font-size: 1rem; margin-top: 1rem; max-width: 800px; margin-left: auto; margin-right: auto;" data-i18n="formations.desc">Des formations professionnelles pratiques pour développer vos compétences et construire votre avenir.</p>
+                <div class="title-divider"></div>
+            </div>
+
+            <div class="formations-grid">
+
+                <div class="formation-card">
+                    <img src="images/Coiffure%20%26%20Esth%C3%A9tique.png">
+                    <div class="formation-content">
+                        <h3 data-i18n="formations.formation1">Coiffure & Esthétique</h3>
+                        <p data-i18n="formations.formation1desc">
+                            Maîtrisez les techniques de coupe, de coloration et de soins esthétiques pour travailler en salon ou ouvrir le vôtre.
+                        </p>
+                        <a href="formation.html?f=coiffure"
+                           class="btn btn-outline" data-i18n="services.btn">
+                           Voir les détails →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="formation-card">
+                    <img src="images/Couture%20%26%20Stylisme.png">
+                    <div class="formation-content">
+                        <h3 data-i18n="formations.formation2">Couture & Stylisme</h3>
+                        <p data-i18n="formations.formation2desc">
+                            De la prise de mesures à la collection finie : apprenez le patronage, le montage et la création de modèles.
+                        </p>
+                        <a href="formation.html?f=couture"
+                           class="btn btn-outline" data-i18n="services.btn">
+                           Voir les détails →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="formation-card">
+                    <img src="images/P%C3%A2tisserie%20%26%20Cuisine.png">
+                    <div class="formation-content">
+                        <h3 data-i18n="formations.formation3">Pâtisserie & Cuisine</h3>
+                        <p data-i18n="formations.formation3desc">
+                            Bases professionnelles de la pâtisserie, de la viennoiserie et de la cuisine marocaine et internationale.
+                        </p>
+                        <a href="formation.html?f=patisserie"
+                           class="btn btn-outline" data-i18n="services.btn">
+                           Voir les détails →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="formation-card">
+                    <img src="images/Informatique%20%26%20Bureautiqu.png">
+                    <div class="formation-content">
+                        <h3 data-i18n="formations.formation4">Informatique & Bureautique</h3>
+                        <p data-i18n="formations.formation4desc">
+                            Devenez autonome sur l'ordinateur : bureautique, infographie, web et réseaux sociaux professionnels.
+                        </p>
+                        <a href="formation.html?f=informatique"
+                           class="btn btn-outline" data-i18n="services.btn">
+                           Voir les détails →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="formation-card">
+                    <img src="images/%C3%89lectricit%C3%A9%20%26%20Maintenanc.png">
+                    <div class="formation-content">
+                        <h3 data-i18n="formations.formation5">Électricité & Maintenance</h3>
+                        <p data-i18n="formations.formation5desc">
+                            Formation 100% pratique en atelier : installation, dépannage, froid et climatisation.
+                        </p>
+                        <a href="formation.html?f=electricite"
+                           class="btn btn-outline" data-i18n="services.btn">
+                           Voir les détails →
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="method-section">
+        <div class="container method-split">
+            <div class="method-content">
+                <span class="tagline" data-i18n="method.tagline">Approche</span>
+                <h2 data-i18n="method.title">UN CENTRE, UNE MÉTHODE</h2>
+                <p data-i18n="method.desc">Chez FITAT Formation, 70% du temps est consacré à la pratique. Nos ateliers équipés, nos formateurs professionnels et notre suivi personnalisé permettent à chaque stagiaire de sortir avec un vrai savoir-faire.</p>
+                
+                <ul class="method-list">
+                    <li><i class="fas fa-check"></i> <span data-i18n="method.point1">Ateliers équipés et groupes réduits</span></li>
+                    <li><i class="fas fa-check"></i> <span data-i18n="method.point2">Formateurs professionnels du terrain</span></li>
+                    <li><i class="fas fa-check"></i> <span data-i18n="method.point3">Stages en entreprise et aide à l'insertion</span></li>
+                    <li><i class="fas fa-check"></i> <span data-i18n="method.point4">Attestations et diplômes reconnus</span></li>
+                </ul>
+            </div>
+            
+            <div class="method-image">
+                <img src="logo.jpg" alt="FITAT Logo">
+            </div>
+        </div>
+    </section>
+
+    <section class="social-dock">
+        <div class="container">
+            <h4 data-i18n="social.title">Rejoignez l'univers digital du Chef</h4>
+            <div class="dock-flex">
+                <a href="https://www.instagram.com/saadfitat?igsh=MTdncGRwbnR4eWZtOQ==" class="dock-item"><i class="fab fa-instagram"></i> <span data-i18n="social.instagram">Instagram</span></a>
+                <a href="#" class="dock-item"><i class="fab fa-tiktok"></i> <span data-i18n="social.tiktok">TikTok</span></a>
+                <a href="#" class="dock-item"><i class="fab fa-facebook-f"></i> <span data-i18n="social.facebook">Facebook</span></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container contact-split">
+            <div class="contact-details">
+                <span class="tagline" data-i18n="contact.tagline">Réservation</span>
+                <h3 data-i18n="contact.title">Donnez vie à vos projets culinaires</h3>
+                <p data-i18n="contact.desc">Pour toute demande de masterclass privée, consulting pour restaurants ou inscription aux formations professionnelles d'élite.</p>
+                
+                <div class="card-info-pane">
+                    <div class="pane-row">
+                        <div class="icon-wrapper"><i class="fas fa-phone-alt"></i></div>
+                        <div>
+                            <h6 data-i18n="contact.phone">Téléphone direct</h6>
+                            <p>+212 6 20 00 72 04</p>
+                        </div>
+                    </div>
+                    <div class="pane-row">
+                        <div class="icon-wrapper"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h6 data-i18n="contact.email">Email conciergerie</h6>
+                            <p>contact@chefsaadfitat.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-frame-box">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span data-i18n="contact.location">Studio Culinaire Ateliers — Casablanca, Maroc</span>
+                </div>
+            </div>
+
+            <div class="form-panel">
+                <form id="luxuryContactForm" action="#" onsubmit="handleFormSubmit(event)">
+                    <div class="input-group">
+                        <input type="text" id="fullname" required placeholder=" ">
+                        <label for="fullname" data-i18n="contact.name">Votre Nom Complet</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" required placeholder=" ">
+                        <label for="email" data-i18n="contact.emailfield">Adresse Electronique</label>
+                    </div>
+                    <div class="input-group">
+                        <select id="curriculum">
+                            <option value="professionnel" data-i18n="contact.option1">Cursus Professionnel (3 Mois)</option>
+                            <option value="initiation" data-i18n="contact.option2">Cursus Initiation (1 Mois)</option>
+                            <option value="master" data-i18n="contact.option3">Cursus Master Chef (6 Mois)</option>
+                            <option value="consulting" data-i18n="contact.option4">Consulting de Carte / Événementiel</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="message" rows="4" required placeholder=" "></textarea>
+                        <label for="message" data-i18n="contact.message">Parlez-moi de votre projet culinaire...</label>
+                    </div>
+                    <button type="submit" class="btn btn-gold full-width" style="width: 100%;" data-i18n="contact.submit">Envoyer la demande d'étude</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-sig">
+    <img src="logo.jpg" alt="FITAT Logo" class="footer-logo">
+</div>
+            <div class="footer-line"></div>
+            <p class="footer-copy" data-i18n="footer.copy">© 2024 FITAT Formation. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Sticky Header switch engine on scrolling thresholds
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 60) {
+                nav.classList.add('sticky');
+            } else {
+                nav.classList.remove('sticky');
+            }
+        });
+
+        // Form submission success event handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const message = currentLang === 'ar' 
+                ? 'تم إرسال طلب تسجيلك بنجاح إلى الفريق الإداري للشيف سعد فيات. سيتصل بك مستشار في غضون 24 ساعة.'
+                : "Votre demande d'inscription a bien été transmise à l'équipe administrative du Chef Saâd Fitat. Un consultant reviendra vers vous sous 24 heures.";
+            alert(message);
+            document.getElementById('luxuryContactForm').reset();
+        }
+function toggleMenu() {
+    document.querySelector('.menu-links').classList.toggle('show');
+}
+
+// Language Translation System
+const translations = {
+    fr: {
+        'nav.home': 'Accueil',
+        'nav.services': 'Services',
+        'nav.gallery': 'Réalisation',
+        'nav.about': 'À propos',
+        'nav.contact': 'Contact',
+        'hero.badge': 'CENTRE DE FORMATION AGREE',
+        'hero.title': 'FORMEZ-VOUS AUX MÉTIERS QUI<br>RECRUTENT',
+        'hero.description': 'FITAT Formation accompagne les jeunes et les professionnels avec des parcours pratiques, encadrés par des formateurs experts et orientés vers l\'emploi.',
+        'hero.btn.coiffure': 'Coiffure & Esthétique',
+        'hero.btn.couture': 'Couture & Stylisme',
+        'hero.btn.patisserie': 'Pâtisserie & Cuisine',
+        'hero.btn.informatique': 'Informatique & Bureautique',
+        'hero.btn.electricite': 'Électricité & Maintenance',
+        'hero.btn.register': 'S\'inscrire maintenant →',
+        'hero.stat1': '+1200',
+        'hero.stat1label': 'STAGIAIRES FORMÉS',
+        'hero.stat2': '+15',
+        'hero.stat2label': 'FILIÈRES',
+        'hero.stat3': '92%',
+        'hero.stat3label': 'TAUX DE RÉUSSITE',
+        'about.tagline': 'Philosophie Culinaire',
+        'about.title': 'L\'harmonie parfaite du goût & du geste',
+        'about.p1': 'Ambassadeur d\'une cuisine à la fois moderne et profondément enracinée, le <strong>Chef Saâd Fitat</strong> réinvente l\'art culinaire à travers une vision contemporaine exclusive. Chaque assiette est pensée comme une œuvre éphémère, mariant la générosité légendaire de la gastronomie marocaine aux exigences de la haute cuisine internationale.',
+        'about.p2': 'En tant que formateur et consultant d\'élite, il transmet à ses paires et étudiants la rigueur du geste technique millimétré, le respect absolu du produit brut et l\'audace créative.',
+        'about.stamp1': 'Haute Gastronomie',
+        'about.stamp1desc': 'Standard de Palace',
+        'about.stamp2': 'Transmission',
+        'about.stamp2desc': '+500 Élèves Formés',
+        'stats.stat1label': 'Étudiants Formés',
+        'stats.stat2label': 'Ans d\'Expérience',
+        'stats.stat3label': 'Événements Culinaires',
+        'stats.stat4label': 'Restaurants Accompagnés',
+        'gallery.tagline': 'Atmosphère',
+        'gallery.title': 'Créations & Réalisations',
+        'gallery.tag1': 'Gastronomie marocaine',
+        'gallery.title1': 'Le Terroir Moderne',
+        'gallery.tag2': 'Cuisine internationale',
+        'gallery.title2': 'Fusions Contemporaines',
+        'gallery.tag3': 'Dressage professionnel',
+        'gallery.title3': 'Géométrie du Goût',
+        'gallery.tag4': 'Formations culinaires',
+        'gallery.title4': 'Transmission des Techniques Masters',
+        'gallery.tag5': 'Événements & Prestations',
+        'gallery.title5': 'Dîners Privés d\'Exception',
+        'services.tagline': 'Expertise',
+        'services.title': 'NOS SERVICES',
+        'services.desc': 'Un groupe, cinq pôles d\'expertise au service des professionnels de la formation et de la restauration.',
+        'services.service1': 'Bureau de consultation',
+        'services.service1desc': 'Diagnostic, stratégie et accompagnement pour structurer et développer votre activité.',
+        'services.service2': 'Centre de formation',
+        'services.service2desc': '6 filières professionnelles certifiantes, 70% de pratique, formateurs experts du terrain.',
+        'services.service3': 'Traiteur',
+        'services.service3desc': 'Prestations traiteur sur mesure pour vos mariages, séminaires et événements d\'entreprise.',
+        'services.service4': 'Logiciel de gestion',
+        'services.service4desc': 'Un outil simple et fiable pour piloter stocks, facturation et réservations au quotidien.',
+        'services.service5': 'Création des menus',
+        'services.service5desc': 'Conception de cartes et menus sur mesure, alignés avec votre identité et vos prix.',
+        'services.btn': 'Voir les détails →',
+        'formations.tagline': 'Excellence',
+        'formations.title': 'NOS FORMATIONS',
+        'formations.desc': 'Des formations professionnelles pratiques pour développer vos compétences et construire votre avenir.',
+        'formations.formation1': 'Coiffure & Esthétique',
+        'formations.formation1desc': 'Maîtrisez les techniques de coupe, de coloration et de soins esthétiques pour travailler en salon ou ouvrir le vôtre.',
+        'formations.formation2': 'Couture & Stylisme',
+        'formations.formation2desc': 'De la prise de mesures à la collection finie : apprenez le patronage, le montage et la création de modèles.',
+        'formations.formation3': 'Pâtisserie & Cuisine',
+        'formations.formation3desc': 'Bases professionnelles de la pâtisserie, de la viennoiserie et de la cuisine marocaine et internationale.',
+        'formations.formation4': 'Informatique & Bureautique',
+        'formations.formation4desc': 'Devenez autonome sur l\'ordinateur : bureautique, infographie, web et réseaux sociaux professionnels.',
+        'formations.formation5': 'Électricité & Maintenance',
+        'formations.formation5desc': 'Formation 100% pratique en atelier : installation, dépannage, froid et climatisation.',
+        'method.tagline': 'Approche',
+        'method.title': 'UN CENTRE, UNE MÉTHODE',
+        'method.desc': 'Chez FITAT Formation, 70% du temps est consacré à la pratique. Nos ateliers équipés, nos formateurs professionnels et notre suivi personnalisé permettent à chaque stagiaire de sortir avec un vrai savoir-faire.',
+        'method.point1': 'Ateliers équipés et groupes réduits',
+        'method.point2': 'Formateurs professionnels du terrain',
+        'method.point3': 'Stages en entreprise et aide à l\'insertion',
+        'method.point4': 'Attestations et diplômes reconnus',
+        'social.title': 'Rejoignez l\'univers digital du Chef',
+        'social.instagram': 'Instagram',
+        'social.tiktok': 'TikTok',
+        'social.facebook': 'Facebook',
+        'contact.tagline': 'Réservation',
+        'contact.title': 'Donnez vie à vos projets culinaires',
+        'contact.desc': 'Pour toute demande de masterclass privée, consulting pour restaurants ou inscription aux formations professionnelles d\'élite.',
+        'contact.phone': 'Téléphone direct',
+        'contact.email': 'Email conciergerie',
+        'contact.location': 'Studio Culinaire Ateliers — Casablanca, Maroc',
+        'contact.name': 'Votre Nom Complet',
+        'contact.emailfield': 'Adresse Electronique',
+        'contact.message': 'Parlez-moi de votre projet culinaire...',
+        'contact.submit': 'Envoyer la demande d\'étude',
+        'contact.option1': 'Cursus Professionnel (3 Mois)',
+        'contact.option2': 'Cursus Initiation (1 Mois)',
+        'contact.option3': 'Cursus Master Chef (6 Mois)',
+        'contact.option4': 'Consulting de Carte / Événementiel',
+        'footer.copy': '© 2024 FITAT Formation. Tous droits réservés.'
+    },
+    ar: {
+        'nav.home': 'الرئيسية',
+        'nav.services': 'الخدمات',
+        'nav.gallery': 'الإنجازات',
+        'nav.about': 'من نحن',
+        'nav.contact': 'اتصل بنا',
+        'hero.badge': 'مركز تكوين معتمد',
+        'hero.title': 'تدرب على المهن التي توظف',
+        'hero.description': 'يرافق مركز فتات للتكوين الشباب والمحترفين بمسارات عملية، تحت إشراف مدربين خبراء وموجهة نحو التوظيف.',
+        'hero.btn.coiffure': 'الحلاقة والتجميل',
+        'hero.btn.couture': 'الخياطة والتصميم',
+        'hero.btn.patisserie': 'الحلويات والطبخ',
+        'hero.btn.informatique': 'المعلوميات والأعمال المكتبية',
+        'hero.btn.electricite': 'الكهرباء والصيانة',
+        'hero.btn.register': 'سجل الآن ←',
+        'hero.stat1': '+1200',
+        'hero.stat1label': 'متدرب مدرب',
+        'hero.stat2': '+15',
+        'hero.stat2label': 'تخصصات',
+        'hero.stat3': '92%',
+        'hero.stat3label': 'معدل النجاح',
+        'about.tagline': 'الفلسفة الطهوية',
+        'about.title': 'التناغم المثالي بين الذوق والإيماءة',
+        'about.p1': 'سفير للمطبخ الحديث والمتجذر بعمق، يعيد <strong>الشيف سعد فتات</strong> اختراع الفن الطهوي من خلال رؤية معاصرة حصرية. كل طبق مصمم كعمل فني مؤقت، يكرم كرم المطبخ المغربي الأسطوري مع تلبية متطلبات المطبخ العالمي الراقي.',
+        'about.p2': 'بصفته مدرباً ومستشاراً نخبوياً، ينقل إلى زملائه وطلابه دقة الحركة التقنية المليمترية، والاحترام المطلق للمنتج الخام، والجرأة الإبداعية.',
+        'about.stamp1': 'المطبخ الراقي',
+        'about.stamp1desc': 'معايير القصور',
+        'about.stamp2': 'النقل',
+        'about.stamp2desc': '+500 طالب مدرب',
+        'stats.stat1label': 'طلاب مدربين',
+        'stats.stat2label': 'سنوات من الخبرة',
+        'stats.stat3label': 'فعاليات طهوية',
+        'stats.stat4label': 'مطاعم مرافقة',
+        'gallery.tagline': 'الأجواء',
+        'gallery.title': 'الإبداعات والإنجازات',
+        'gallery.tag1': 'المطبخ المغربي',
+        'gallery.title1': 'الأرض الحديثة',
+        'gallery.tag2': 'المطبخ الدولي',
+        'gallery.title2': 'اندماجات معاصرة',
+        'gallery.tag3': 'الترتيب المهني',
+        'gallery.title3': 'هندسة الذوق',
+        'gallery.tag4': 'التكوينات الطهوية',
+        'gallery.title4': 'نقل تقنيات الماجستير',
+        'gallery.tag5': 'الفعاليات والخدمات',
+        'gallery.title5': 'عشاءات خاصة استثنائية',
+        'services.tagline': 'الخبرة',
+        'services.title': 'خدماتنا',
+        'services.desc': 'مجموعة، خمسة محاور خبرة في خدمة محترفي التكوين والمطاعم.',
+        'services.service1': 'مكتب الاستشارات',
+        'services.service1desc': 'التشخيص والاستراتيجية والمرافقة لهيكلة وتطوير نشاطك.',
+        'services.service2': 'مركز التكوين',
+        'services.service2desc': '6 تخصصات مهنية معتمدة، 70% ممارسة، مدربون خبراء من الميدان.',
+        'services.service3': 'التموين',
+        'services.service3desc': 'خدمات تموين مخصصة لحفلات زفافك، ندواتك وفعاليات شركتك.',
+        'services.service4': 'برنامج الإدارة',
+        'services.service4desc': 'أداة بسيطة وموثوقة لإدارة المخزون والفوترة والحجوزات يومياً.',
+        'services.service5': 'إنشاء القوائم',
+        'services.service5desc': 'تصميم بطاقات وقوائم مخصصة، متوافقة مع هويتك وأسعارك.',
+        'services.btn': 'عرض التفاصيل ←',
+        'formations.tagline': 'التميز',
+        'formations.title': 'تكويناتنا',
+        'formations.desc': 'تكوينات مهنية عملية لتطوير مهاراتك وبناء مستقبلك.',
+        'formations.formation1': 'الحلاقة والتجميل',
+        'formations.formation1desc': 'أتقن تقنيات القص والتلوين والعناية الجمالية للعمل في صالون أو افتتاح صالونك الخاص.',
+        'formations.formation2': 'الخياطة والتصميم',
+        'formations.formation2desc': 'من أخذ المقاسات إلى المجموعة النهائية: تعلم النمذجة والتركيب وإنشاء النماذج.',
+        'formations.formation3': 'الحلويات والطبخ',
+        'formations.formation3desc': 'الأساسيات المهنية للحلويات والمعجنات والمطبخ المغربي والعالمي.',
+        'formations.formation4': 'المعلوميات والأعمال المكتبية',
+        'formations.formation4desc': 'كن مستقلاً على الكمبيوتر: الأعمال المكتبية، الإنفوجرافيك، الويب والشبكات الاجتماعية المهنية.',
+        'formations.formation5': 'الكهرباء والصيانة',
+        'formations.formation5desc': 'تكوين 100% عملي في الورشة: التركيب، الإصلاح، التبريد والتكييف.',
+        'method.tagline': 'المقاربة',
+        'method.title': 'مركز واحد، منهجية واحدة',
+        'method.desc': 'في مركز فتات للتكوين، 70% من الوقت مخصص للممارسة. ورشنا المجهزة، مدربونا المحترفون ومتابعتنا الشخصية تسمح لكل متدرب بالخروج بمهارة حقيقية.',
+        'method.point1': 'ورش مجهزة ومجموعات صغيرة',
+        'method.point2': 'مدربون محترفون من الميدان',
+        'method.point3': 'تدريب في الشركات والمساعدة على الإدماج',
+        'method.point4': 'شهادات ودبلومات معترف بها',
+        'social.title': 'انضم إلى العالم الرقمي للشيف',
+        'social.instagram': 'إنستغرام',
+        'social.tiktok': 'تيك توك',
+        'social.facebook': 'فيسبوك',
+        'contact.tagline': 'الحجز',
+        'contact.title': 'أعط الحياة لمشاريعك الطهوية',
+        'contact.desc': 'لأي طلب لدرس خاص، استشارة للمطاعم أو التسجيل في التكوينات المهنية النخبوية.',
+        'contact.phone': 'الهاتف المباشر',
+        'contact.email': 'بريد الاستقبال',
+        'contact.location': 'ورش الطهوي — الدار البيضاء، المغرب',
+        'contact.name': 'الاسم الكامل',
+        'contact.emailfield': 'البريد الإلكتروني',
+        'contact.message': 'حدثني عن مشروعك الطهوي...',
+        'contact.submit': 'إرسال طلب الدراسة',
+        'contact.option1': 'المسار المهني (3 أشهر)',
+        'contact.option2': 'مسار التمهيد (شهر واحد)',
+        'contact.option3': 'مسار شيف ماجستير (6 أشهر)',
+        'contact.option4': 'استشارة القائمة / الفعاليات',
+        'footer.copy': '© 2024 فتات التكوين. جميع الحقوق محفوظة.'
+    }
+};
+
+let currentLang = 'fr';
+
+function switchLanguage(lang) {
+    currentLang = lang;
+    const html = document.documentElement;
+    
+    // Update HTML lang and dir attributes
+    html.setAttribute('lang', lang);
+    html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    
+    // Update font family for Arabic
+    if (lang === 'ar') {
+        document.body.style.fontFamily = 'var(--font-arabic), var(--font-sans), sans-serif';
+    } else {
+        document.body.style.fontFamily = 'var(--font-sans), sans-serif';
+    }
+    
+    // Update language buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Update all translatable elements
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.dataset.i18n;
+        if (translations[lang] && translations[lang][key]) {
+            element.innerHTML = translations[lang][key];
+        }
+    });
+    
+    // Update select options
+    document.querySelectorAll('select option[data-i18n]').forEach(option => {
+        const key = option.dataset.i18n;
+        if (translations[lang] && translations[lang][key]) {
+            option.textContent = translations[lang][key];
+        }
+    });
+    
+    // Save language preference to localStorage
+    localStorage.setItem('preferredLanguage', lang);
+}
+
+// Initialize language on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
+    switchLanguage(savedLang);
+});
+
+const counters = document.querySelectorAll('.counter');
+
+const observer = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            const counter = entry.target;
+            const target = +counter.dataset.target;
+
+            let count = 0;
+
+            const update = ()=>{
+
+                const increment = target / 80;
+
+                count += increment;
+
+                if(count < target){
+
+                    counter.innerText = Math.ceil(count);
+
+                    requestAnimationFrame(update);
+
+                }else{
+
+                    counter.innerText = target;
+                }
+            };
+
+            update();
+
+            observer.unobserve(counter);
+        }
+
+    });
+
+},{threshold:0.5});
+
+counters.forEach(counter=>{
+    observer.observe(counter);
+});
+let galleryImages = [];
+let galleryIndex = 0;
+
+function openGallery(images){
+
+    galleryImages = images;
+    galleryIndex = 0;
+
+    updateGallery();
+
+    document
+        .getElementById('luxGallery')
+        .classList.add('show');
+}
+
+function closeGallery(){
+
+    document
+        .getElementById('luxGallery')
+        .classList.remove('show');
+}
+
+function updateGallery(){
+
+    document.getElementById('galleryImage').src =
+    galleryImages[galleryIndex];
+
+    document.getElementById('galleryCounter').innerHTML =
+    (galleryIndex + 1)
+    + " / "
+    + galleryImages.length;
+}
+
+function nextImage(){
+
+    galleryIndex++;
+
+    if(galleryIndex >= galleryImages.length){
+        galleryIndex = 0;
+    }
+
+    updateGallery();
+}
+
+function prevImage(){
+
+    galleryIndex--;
+
+    if(galleryIndex < 0){
+        galleryIndex = galleryImages.length - 1;
+    }
+
+    updateGallery();
+}
+    </script>
+<div class="lux-gallery" id="luxGallery">
+
+    <span class="gallery-close" onclick="closeGallery()">
+        &times;
+    </span>
+
+    <button class="gallery-arrow left" onclick="prevImage()">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <img id="galleryImage">
+
+    <button class="gallery-arrow right" onclick="nextImage()">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+
+    <div class="gallery-counter" id="galleryCounter">
+        1 / 3
+    </div>
+
+</div>
+</body>
+</html>

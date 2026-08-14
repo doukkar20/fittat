@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation - FITAT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-sans: 'Montserrat', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --font-arabic: 'Noto Kufi Arabic', sans-serif;
+            --gold-dark: #0a192f;
+            --gold-primary: #0d47a1;
+            --gold-light: #1565c0;
+            --bg-pure: #ffffff;
+            --bg-deep: #f8f9fa;
+            --text-light: #0a192f;
+            --text-muted: #546e7a;
+            --glass-border: rgba(13, 71, 161, 0.1);
+            --curve: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-pure);
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 0 2.5rem;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* --- HEADER --- */
+        .header-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.8rem 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid var(--glass-border);
+            backdrop-filter: blur(15px);
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-identity {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            font-weight: 500;
+            color: var(--gold-primary);
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+            border-radius: 50%;
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-right: 2rem;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(13, 71, 161, 0.2);
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            color: var(--text-muted);
+        }
+
+        .lang-btn:hover {
+            background: rgba(13, 71, 161, 0.1);
+            color: var(--gold-primary);
+        }
+
+        .lang-btn.active {
+            background: var(--gold-primary);
+            color: #ffffff;
+            border-color: var(--gold-primary);
+        }
+
+        .lang-divider {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* RTL Support */
+        [dir="rtl"] .menu-links {
+            flex-direction: row;
+        }
+
+        [dir="rtl"] .lang-switcher {
+            margin-right: 2rem;
+            margin-left: 0;
+        }
+
+        [dir="rtl"] .brand-identity {
+            flex-direction: row;
+        }
+
+        [dir="rtl"] .brand-identity span {
+            border-left: 1px solid rgba(13, 71, 161, 0.3);
+            border-right: none;
+            padding-left: 12px;
+            padding-right: 0;
+        }
+
+        /* Desktop RTL only */
+        @media (min-width: 769px) {
+            [dir="rtl"] .nav-flex {
+                flex-direction: row-reverse;
+            }
+        }
+
+        [dir="rtl"] .formation-split {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        [dir="rtl"] .formation-info {
+            text-align: right;
+        }
+
+        [dir="rtl"] .formation-bottom-buttons {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .back-nav {
+            flex-direction: row-reverse;
+        }
+
+        .brand-identity span {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            border-left: 1px solid rgba(13, 71, 161, 0.3);
+            padding-left: 12px;
+        }
+
+        .menu-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .menu-links a {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            font-weight: 400;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+
+        .menu-links a:hover {
+            color: var(--gold-primary);
+        }
+
+        .menu-links a.btn-gold {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 50%, var(--gold-light) 100%);
+            color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(13, 71, 161, 0.2);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+        }
+
+        .menu-links a.btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(13, 71, 161, 0.35);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            cursor: pointer;
+        }
+
+        /* --- BACK NAV --- */
+        .back-nav {
+            padding: 8rem 0 0;
+        }
+
+        .back-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+
+        .back-nav a:hover {
+            color: var(--gold-primary);
+        }
+
+        /* --- HERO --- */
+        .formation-hero {
+            position: relative;
+            min-height: 650px;
+            padding: 4rem 0 5rem;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .formation-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(5, 35, 75, 0.35);
+            z-index: 0;
+        }
+
+        .formation-hero > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .formation-icon {
+            display: none;
+        }
+
+        .formation-hero h1 {
+            font-family: var(--font-sans);
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .formation-hero p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+
+        .formation-hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.5rem;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s var(--curve);
+            border-radius: 50px;
+            min-height: 52px;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 50%, var(--gold-light) 100%);
+            color: #ffffff;
+            border: none;
+            box-shadow: 0 4px 15px rgba(13, 71, 161, 0.3);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(13, 71, 161, 0.4);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* --- MAIN CONTENT --- */
+        .formation-content {
+            padding: 4rem 0 6rem;
+        }
+
+        .formation-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        .formation-section {
+            background: var(--bg-pure);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .formation-section h3 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .formation-section ul {
+            list-style: none;
+        }
+
+        .formation-section li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .formation-section li:last-child {
+            border-bottom: none;
+        }
+
+        .formation-section li i {
+            color: var(--gold-primary);
+            margin-top: 4px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, rgba(13, 71, 161, 0.03) 0%, rgba(22, 78, 99, 0.02) 100%);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: sticky;
+            top: 120px;
+        }
+
+        .info-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold-primary);
+            margin-bottom: 2rem;
+        }
+
+        .info-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .formation-bottom-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            padding: 4rem 0 6rem;
+        }
+
+        .formation-bottom-buttons .btn-outline {
+            background: transparent;
+            color: var(--gold-primary);
+            border-color: var(--gold-primary);
+            backdrop-filter: none;
+        }
+
+        .formation-bottom-buttons .btn-outline:hover {
+            background: rgba(13, 71, 161, 0.05);
+            border-color: var(--gold-primary);
+            color: var(--gold-primary);
+        }
+
+        /* --- FOOTER --- */
+        .main-footer {
+            background: #0a192f;
+            padding: 5rem 0 3rem;
+            text-align: center;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: var(--gold-primary);
+        }
+
+        .footer-copy {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .menu-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+                padding: 2rem 0;
+                border-bottom: 1px solid var(--glass-border);
+            }
+
+            .menu-links.show {
+                display: flex;
+            }
+
+            /* RTL Mobile - Force same structure as French */
+            [dir="rtl"] .menu-links {
+                flex-direction: column !important;
+                align-items: center !important;
+                left: 0 !important;
+                right: auto !important;
+            }
+
+            [dir="rtl"] .nav-flex {
+                flex-direction: row !important;
+                justify-content: space-between !important;
+            }
+
+            [dir="rtl"] .brand-identity {
+                flex-direction: row !important;
+            }
+
+            [dir="rtl"] .brand-identity span {
+                border-left: 1px solid rgba(13, 71, 161, 0.3) !important;
+                border-right: none !important;
+                padding-left: 12px !important;
+                padding-right: 0 !important;
+            }
+
+            /* RTL Mobile Fixes */
+            [dir="rtl"] .formation-hero h1 {
+                font-size: 1.8rem;
+                line-height: 1.4;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            [dir="rtl"] .formation-hero p {
+                font-size: 0.9rem;
+                line-height: 1.6;
+                padding: 0 1rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            [dir="rtl"] .formation-hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 280px;
+            }
+
+            [dir="rtl"] .btn {
+                width: 100%;
+                font-size: 14px;
+                padding: 0 16px;
+                white-space: normal;
+                word-wrap: break-word;
+            }
+
+            [dir="rtl"] .formation-section h3 {
+                font-size: 1.2rem;
+                line-height: 1.4;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            [dir="rtl"] .formation-section ul li {
+                font-size: 0.85rem;
+                line-height: 1.5;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            [dir="rtl"] .info-card h3 {
+                font-size: 1.2rem;
+                line-height: 1.4;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            [dir="rtl"] .info-label {
+                font-size: 0.75rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            [dir="rtl"] .info-value {
+                font-size: 0.9rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            [dir="rtl"] .formation-bottom-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .formation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-card {
+                position: static;
+            }
+
+            .formation-hero {
+                min-height: 550px;
+                padding: 3rem 0 4rem;
+            }
+
+            .formation-hero h1 {
+                font-size: 2rem;
+            }
+
+            .formation-hero p {
+                font-size: 1rem;
+                margin: 0 auto 2rem;
+            }
+
+            .formation-hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .formation-bottom-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="header-nav" id="mainNav">
+        <div class="container nav-flex">
+            <a href="index.html" class="brand-identity">
+                <img src="logo.jpg" alt="FITAT Logo" class="nav-logo">
+                <span>FITAT</span>
+            </a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="menu-links">
+                <a href="index.html" data-i18n="nav.home">Accueil</a>
+                <a href="index.html#services" data-i18n="nav.services">Services</a>
+                <a href="index.html#gallery" data-i18n="nav.gallery">Réalisation</a>
+                <a href="index.html#about" data-i18n="nav.about">À propos</a>
+                <a href="index.html#contact" class="btn btn-gold" data-i18n="nav.contact">Contact</a>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="fr" onclick="switchLanguage('fr')">FR</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="ar" onclick="switchLanguage('ar')">العربية</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="back-nav">
+            <a href="index.html" data-i18n="back.formations">
+                <i class="fas fa-arrow-left"></i>
+                Toutes les formations
+            </a>
+        </div>
+
+        <div class="formation-hero">
+            <div class="formation-icon" id="formationIcon">✂️</div>
+            <h1 id="formationTitle" data-i18n="formation.title">Coiffure & Esthétique</h1>
+            <p id="formationDescription" data-i18n="formation.description">Maîtrisez les techniques de coupe, de coloration et de soins esthétiques pour travailler en salon ou ouvrir le vôtre.</p>
+            <div class="formation-hero-buttons">
+                <a href="index.html#contact" class="btn btn-gold" data-i18n="formation.register">S'inscrire</a>
+                <a href="tel:+212600000000" class="btn btn-outline">
+                    <i class="fas fa-phone" style="margin-right: 8px;"></i>
+                    <span data-i18n="formation.call">Appeler le centre</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="formation-content">
+            <div class="formation-grid">
+                <div class="formation-left">
+                    <div class="formation-section">
+                        <h3 data-i18n="formation.program">Programme de la formation</h3>
+                        <ul id="formationProgramme">
+                            <li><i class="fas fa-check"></i> Hygiène, sécurité et accueil client</li>
+                            <li><i class="fas fa-check"></i> Coupes femmes / hommes / enfants</li>
+                            <li><i class="fas fa-check"></i> Coloration, mèches, balayage et décoloration</li>
+                            <li><i class="fas fa-check"></i> Lissage, permanente et soins capillaires</li>
+                            <li><i class="fas fa-check"></i> Soins du visage, épilation et manucure</li>
+                            <li><i class="fas fa-check"></i> Maquillage jour, soirée et mariée</li>
+                            <li><i class="fas fa-check"></i> Coiffure événementielle et chignons</li>
+                            <li><i class="fas fa-check"></i> Gestion d'un salon : stock, tarifs, clientèle</li>
+                        </ul>
+                    </div>
+
+                    <div class="formation-section">
+                        <h3 data-i18n="formation.careers">Débouchés</h3>
+                        <ul id="formationDebouches">
+                            <li><i class="fas fa-briefcase"></i> Coiffeur(se) en salon</li>
+                            <li><i class="fas fa-briefcase"></i> Esthéticien(ne) en institut ou spa</li>
+                            <li><i class="fas fa-briefcase"></i> Maquilleur(se) événementiel</li>
+                            <li><i class="fas fa-briefcase"></i> Création de son propre salon</li>
+                        </ul>
+                    </div>
+
+                    <div class="formation-section">
+                        <h3 data-i18n="formation.conditions">Conditions d'accès</h3>
+                        <ul id="formationConditions">
+                            <li><i class="fas fa-user-check"></i> Aucun diplôme exigé</li>
+                            <li><i class="fas fa-user-check"></i> Âge minimum : 16 ans</li>
+                            <li><i class="fas fa-user-check"></i> Motivation et sens du contact</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="formation-right">
+                    <div class="info-card">
+                        <h3 data-i18n="formation.info">Informations pratiques</h3>
+                        <div class="info-item">
+                            <div class="info-label" data-i18n="formation.duration">Durée</div>
+                            <div class="info-value" id="infoDuree">6 à 12 mois</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label" data-i18n="formation.schedule">Rythme</div>
+                            <div class="info-value" id="infoRythme">Lundi au vendredi · 9h-13h ou 14h-18h</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label" data-i18n="formation.level">Niveau</div>
+                            <div class="info-value" id="infoNiveau">Débutant accepté</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label" data-i18n="formation.diploma">Diplôme</div>
+                            <div class="info-value" id="infoDiplome">Diplôme de fin de formation + attestation de stage</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label" data-i18n="formation.groupSize">Effectif</div>
+                            <div class="info-value" id="infoEffectif">Groupes de 12 stagiaires maximum</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label" data-i18n="formation.price">Tarif</div>
+                            <div class="info-value" id="infoTarif">Sur demande (facilités de paiement)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="formation-bottom-buttons">
+            <a href="index.html#contact" class="btn btn-gold" data-i18n="formation.apply">Demander une inscription</a>
+            <a href="index.html#gallery" class="btn btn-outline" data-i18n="formation.viewWorks">Voir les réalisations</a>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <nav class="footer-nav">
+                <a href="index.html" data-i18n="nav.home">Accueil</a>
+                <a href="index.html#services" data-i18n="nav.services">Services</a>
+                <a href="index.html#gallery" data-i18n="nav.gallery">Réalisation</a>
+                <a href="index.html#about" data-i18n="nav.about">À propos</a>
+                <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
+            </nav>
+            <p class="footer-copy" data-i18n="footer.copy">© 2024 FITAT Formation. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Formation data
+        const formations = {
+            gastronomie: {
+                icon: '🌍',
+                fr: {
+                    title: 'La gastronomie mondiale',
+                    description: 'Gestion d\'établissement, gestion de stockage, création de fiches techniques et marketing culinaire.',
+                    image: 'images/La gastronomie mondiale.png',
+                    programme: [
+                        'Gestion d\'établissement',
+                        'Gestion de stockage',
+                        'Création fiche techniques',
+                        'Gestion d\'équipe',
+                        'Marketing',
+                        'Création menu',
+                        'Les techniques d\'art culinaire',
+                        'Les nouveautés des signatures',
+                        'Mise à jour culinaire'
+                    ],
+                    debouches: [
+                        'Chef de cuisine',
+                        'Responsable de restaurant',
+                        'Consultant en restauration',
+                        'Gestionnaire d\'établissement'
+                    ],
+                    conditions: [
+                        'Aucun diplôme exigé',
+                        'Expérience en restauration recommandée'
+                    ],
+                    duree: '6 à 12 mois',
+                    rythme: 'Formation pratique · 4 jours / semaine',
+                    niveau: 'Intermédiaire à avancé',
+                    diplome: 'Certificat professionnel gestion culinaire',
+                    effectif: 'Groupes de 10 stagiaires maximum',
+                    tarif: 'Sur demande (facilités de paiement)'
+                },
+                ar: {
+                    title: 'فنون الطهي العالمية',
+                    description: 'إدارة المؤسسات، إدارة التخزين، إنشاء البطاقات التقنية والتسويق الطهوي.',
+                    image: 'images/La gastronomie mondiale.png',
+                    programme: [
+                        'إدارة المؤسسات',
+                        'إدارة التخزين',
+                        'إنشاء البطاقات التقنية',
+                        'إدارة الفريق',
+                        'التسويق',
+                        'إنشاء القوائم',
+                        'تقنيات الفن الطهوي',
+                        'جديد التوقيعات',
+                        'التحديث الطهوي'
+                    ],
+                    debouches: [
+                        'رئيس طباخ',
+                        'مسؤول مطعم',
+                        'مستشار مطاعم',
+                        'مدير مؤسسة'
+                    ],
+                    conditions: [
+                        'لا دبلوم مطلوب',
+                        'خبرة في المطاعم موصى بها'
+                    ],
+                    duree: '6 إلى 12 شهر',
+                    rythme: 'تكوين عملي · 4 أيام / أسبوع',
+                    niveau: 'من المتوسط إلى المتقدم',
+                    diplome: 'شهادة مهنية إدارة طهوية',
+                    effectif: 'مجموعات 10 متدرب كحد أقصى',
+                    tarif: 'عند الطلب (تسهيلات الدفع)'
+                }
+            },
+            coiffure: {
+                icon: '✂️',
+                fr: {
+                    title: 'Coiffure & Esthétique',
+                    description: 'Maîtrisez les techniques de coupe, de coloration et de soins esthétiques pour travailler en salon ou ouvrir le vôtre.',
+                    image: 'images/Coiffure%20%26%20Esth%C3%A9tique.png',
+                    programme: [
+                        'Hygiène, sécurité et accueil client',
+                        'Coupes femmes / hommes / enfants',
+                        'Coloration, mèches, balayage et décoloration',
+                        'Lissage, permanente et soins capillaires',
+                        'Soins du visage, épilation et manucure',
+                        'Maquillage jour, soirée et mariée',
+                        'Coiffure événementielle et chignons',
+                        'Gestion d\'un salon : stock, tarifs, clientèle'
+                    ],
+                    debouches: [
+                        'Coiffeur(se) en salon',
+                        'Esthéticien(ne) en institut ou spa',
+                        'Maquilleur(se) événementiel',
+                        'Création de son propre salon'
+                    ],
+                    conditions: [
+                        'Aucun diplôme exigé',
+                        'Âge minimum : 16 ans',
+                        'Motivation et sens du contact'
+                    ],
+                    duree: '6 à 12 mois',
+                    rythme: 'Lundi au vendredi · 9h-13h ou 14h-18h',
+                    niveau: 'Débutant accepté',
+                    diplome: 'Diplôme de fin de formation + attestation de stage',
+                    effectif: 'Groupes de 12 stagiaires maximum',
+                    tarif: 'Sur demande (facilités de paiement)'
+                },
+                ar: {
+                    title: 'الحلاقة والتجميل',
+                    description: 'أتقن تقنيات القص والتلوين والعناية الجمالية للعمل في صالون أو افتتاح صالونك الخاص.',
+                    image: 'images/Coiffure%20%26%20Esth%C3%A9tique.png',
+                    programme: [
+                        'النظافة والسلامة واستقبال العملاء',
+                        'حلاقات نساء / رجال / أطفال',
+                        'التلوين، الخصلات، التدرج والتبييض',
+                        'التنعيم والبيرما والعناية بالشعر',
+                        'عناية الوجه، إزالة الشعر والمانيكير',
+                        'المكياج نهاراً ومساءً والعروس',
+                        'تسريحات مناسبات وتزيين الشعر',
+                        'إدارة الصالون: المخزون، الأسعار، العملاء'
+                    ],
+                    debouches: [
+                        'كوافير/ة في صالون',
+                        'أخصائي/ة تجميل في معهد أو سبا',
+                        'مكياج/ة فعاليات',
+                        'إنشاء صالونك الخاص'
+                    ],
+                    conditions: [
+                        'لا دبلوم مطلوب',
+                        'الحد الأدنى للسن: 16 سنة',
+                        'الدافع وحس التواصل'
+                    ],
+                    duree: '6 إلى 12 شهر',
+                    rythme: 'من الاثنين إلى الجمعة · 9-13 أو 14-18',
+                    niveau: 'المبتدئ مقبول',
+                    diplome: 'دبلوم نهاية التكوين + شهادة التدريب',
+                    effectif: 'مجموعات 12 متدرب كحد أقصى',
+                    tarif: 'عند الطلب (تسهيلات الدفع)'
+                }
+            },
+            couture: {
+                icon: '🧵',
+                fr: {
+                    title: 'Couture & Stylisme',
+                    description: 'De la prise de mesures à la collection finie : apprenez le patronage, le montage et la création de modèles.',
+                    image: 'images/Couture%20%26%20Stylisme.png',
+                    programme: [
+                        'Machines, matières et fournitures',
+                        'Prise de mesures et tableau de tailles',
+                        'Patronage à plat et moulage',
+                        'Montage jupes, pantalons, robes, vestes',
+                        'Caftan et tenues traditionnelles',
+                        'Finitions, broderie et perlage',
+                        'Dessin de mode et planche tendance',
+                        'Création d\'une mini-collection de fin d\'année'
+                    ],
+                    debouches: [
+                        'Couturier(ère) en atelier',
+                        'Modéliste / patronnier(ère)',
+                        'Styliste indépendant(e)',
+                        'Atelier de retouches à son compte'
+                    ],
+                    conditions: [
+                        'Aucun prérequis technique',
+                        'Goût du travail manuel et de la précision'
+                    ],
+                    duree: '9 mois',
+                    rythme: 'Ateliers pratiques · 4 jours / semaine',
+                    niveau: 'Débutant à perfectionnement',
+                    diplome: 'Diplôme de styliste-modéliste (fin de formation)',
+                    effectif: 'Groupes de 15 stagiaires maximum',
+                    tarif: 'Sur demande (facilités de paiement)'
+                },
+                ar: {
+                    title: 'الخياطة والتصميم',
+                    description: 'من أخذ المقاسات إلى المجموعة النهائية: تعلم النمذجة والتركيب وإنشاء النماذج.',
+                    image: 'images/Couture%20%26%20Stylisme.png',
+                    programme: [
+                        'الآلات والمواد والتجهيزات',
+                        'أخذ المقاسات وجدول المقاسات',
+                        'النمذجة المسطحة والتشكيل',
+                        'تركيب التنانير والبناطيل والفساتين والسترات',
+                        'القفطان والملابس التقليدية',
+                        'التشطيب والطرز والتطريز',
+                        'رسم الأزياء ولوحة الاتجاهات',
+                        'إنشاء مجموعة مصغرة نهاية السنة'
+                    ],
+                    debouches: [
+                        'خياط/ة في ورشة',
+                        'نمذج/ة',
+                        'مصمم/ة مستقل',
+                        'ورشة إصلاحات لحسابك الخاص'
+                    ],
+                    conditions: [
+                        'لا متطلبات تقنية',
+                        'حب العمل اليدوي والدقة'
+                    ],
+                    duree: '9 أشهر',
+                    rythme: 'ورش عملية · 4 أيام / أسبوع',
+                    niveau: 'من المبتدئ إلى الإتقان',
+                    diplome: 'دبلوم مصمم-نمذج (نهاية التكوين)',
+                    effectif: 'مجموعات 15 متدرب كحد أقصى',
+                    tarif: 'عند الطلب (تسهيلات الدفع)'
+                }
+            },
+            informatique: {
+                icon: '💻',
+                fr: {
+                    title: 'Informatique & Bureautique',
+                    description: 'Devenez autonome sur l\'ordinateur : bureautique, infographie, web et réseaux sociaux professionnels.',
+                    image: 'images/Informatique%20%26%20Bureautiqu.png',
+                    programme: [
+                        'Windows, fichiers et Internet',
+                        'Word : courriers, rapports, mise en page',
+                        'Excel : formules, tableaux croisés, graphiques',
+                        'PowerPoint et présentation professionnelle',
+                        'Photoshop / Illustrator : bases infographie',
+                        'Création de site web (HTML, CSS, WordPress)',
+                        'Marketing digital et réseaux sociaux',
+                        'Projet final : identité visuelle + mini-site'
+                    ],
+                    debouches: [
+                        'Assistant(e) administratif / secrétariat',
+                        'Infographiste junior',
+                        'Community manager',
+                        'Freelance web & print'
+                    ],
+                    conditions: [
+                        'Savoir lire et écrire',
+                        'Aucune expérience informatique requise'
+                    ],
+                    duree: '3 à 6 mois',
+                    rythme: 'Cours du soir possibles · 3 séances / semaine',
+                    niveau: 'Débutant à intermédiaire',
+                    diplome: 'Certificat de compétences bureautique & digital',
+                    effectif: '1 poste par stagiaire',
+                    tarif: 'Sur demande (paiement mensuel)'
+                },
+                ar: {
+                    title: 'المعلوميات والأعمال المكتبية',
+                    description: 'كن مستقلاً على الكمبيوتر: الأعمال المكتبية، الإنفوجرافيك، الويب والشبكات الاجتماعية المهنية.',
+                    image: 'images/Informatique%20%26%20Bureautiqu.png',
+                    programme: [
+                        'ويندوز والملفات والإنترنت',
+                        'ورد: الرسائل والتقارير والتنسيق',
+                        'إكسل: المعادلات والجداول المحورية والرسوم البيانية',
+                        'بوربوينت والعروض المهنية',
+                        'فوتوشوب / إليستريتور: أساسيات الإنفوجرافيك',
+                        'إنشاء موقع ويب (HTML, CSS, WordPress)',
+                        'التسويق الرقمي والشبكات الاجتماعية',
+                        'مشروع نهائي: الهوية البصرية + موقع مصغر'
+                    ],
+                    debouches: [
+                        'مساعد/ة إداري / سكرتاريا',
+                        'مصمم إنفوجرافيك مبتدئ',
+                        'مدير مجتمع',
+                        'عمل حر ويب وطباعة'
+                    ],
+                    conditions: [
+                        'معرفة القراءة والكتابة',
+                        'لا خبرة في المعلوميات مطلوبة'
+                    ],
+                    duree: '3 إلى 6 أشهر',
+                    rythme: 'دروس مسائية ممكنة · 3 حصص / أسبوع',
+                    niveau: 'من المبتدئ إلى المتوسط',
+                    diplome: 'شهادة مهارات مكتبية ورقمية',
+                    effectif: 'محطة واحدة لكل متدرب',
+                    tarif: 'عند الطلب (دفع شهري)'
+                }
+            },
+            electricite: {
+                icon: '⚡',
+                fr: {
+                    title: 'Électricité & Maintenance',
+                    description: 'Formation 100% pratique en atelier : installation, dépannage, froid et climatisation.',
+                    image: 'images/%C3%89lectricit%C3%A9%20%26%20Maintenanc.png',
+                    programme: [
+                        'Électricité de base et lecture de schémas',
+                        'Installation domestique et tableau électrique',
+                        'Éclairage, prises et mise à la terre',
+                        'Moteurs, démarrages et armoires',
+                        'Froid domestique et climatisation split',
+                        'Diagnostic de panne et dépannage',
+                        'Sécurité, normes et habilitation',
+                        'Chantier d\'application encadré'
+                    ],
+                    debouches: [
+                        'Électricien bâtiment',
+                        'Technicien de maintenance',
+                        'Frigoriste / climatisation',
+                        'Artisan indépendant'
+                    ],
+                    conditions: [
+                        'Âge minimum : 17 ans',
+                        'Aptitude au travail manuel'
+                    ],
+                    duree: '6 mois',
+                    rythme: 'Atelier 4 jours / semaine + théorie',
+                    niveau: 'Débutant accepté',
+                    diplome: 'Attestation professionnelle + habilitation sécurité',
+                    effectif: 'Groupes de 10 stagiaires maximum',
+                    tarif: 'Sur demande (outillage fourni)'
+                },
+                ar: {
+                    title: 'الكهرباء والصيانة',
+                    description: 'تكوين 100% عملي في الورشة: التركيب، الإصلاح، التبريد والتكييف.',
+                    image: 'images/%C3%89lectricit%C3%A9%20%26%20Maintenanc.png',
+                    programme: [
+                        'الكهرباء الأساسية وقراءة المخططات',
+                        'التركيب المنزلي واللوحة الكهربائية',
+                        'الإضاءة والمقابس والتأريض',
+                        'المحركات والتشغيل والخزائن',
+                        'التبريد المنزلي وتكييف سبليت',
+                        'تشخيص العطل والإصلاح',
+                        'السلامة والمعايير والترخيص',
+                        'موقع تطبيقي تحت الإشراف'
+                    ],
+                    debouches: [
+                        'كهربائي بناء',
+                        'تقني صيانة',
+                        'تبريد / تكييف',
+                        'حرفي مستقل'
+                    ],
+                    conditions: [
+                        'الحد الأدنى للسن: 17 سنة',
+                        'القدرة على العمل اليدوي'
+                    ],
+                    duree: '6 أشهر',
+                    rythme: 'ورشة 4 أيام / أسبوع + نظرية',
+                    niveau: 'المبتدئ مقبول',
+                    diplome: 'شهادة مهنية + ترخيص سلامة',
+                    effectif: 'مجموعات 10 متدرب كحد أقصى',
+                    tarif: 'عند الطلب (الأدوات مشمولة)'
+                }
+            },
+            boucherie: {
+                icon: '🥩',
+                fr: {
+                    title: 'Boucherie moderne',
+                    description: 'Maîtrisez l\'art de la boucherie : de la réception des viandes à la présentation finale.',
+                    image: 'images/Boucherie.png',
+                    programme: [
+                        'Hygiène & sécurité alimentaire',
+                        'Connaissance des viandes',
+                        'Réception & conservation',
+                        'Découpe & désossage',
+                        'Parage & préparation',
+                        'Découpe du bœuf',
+                        'Découpe de l\'agneau',
+                        'Découpe des volailles',
+                        'Préparation des viandes hachées',
+                        'Marinades & préparations bouchères',
+                        'Charcuterie de base',
+                        'Présentation & conditionnement',
+                        'Gestion & organisation d\'une boucherie',
+                        'Mise en situation professionnelle'
+                    ],
+                    debouches: [
+                        'Boucher en magasin',
+                        'Technicien de découpe',
+                        'Responsable rayon boucherie',
+                        'Artisan boucher indépendant'
+                    ],
+                    conditions: [
+                        'Aucun diplôme exigé',
+                        'Certificat médical d\'aptitude alimentaire'
+                    ],
+                    duree: '6 à 9 mois',
+                    rythme: 'Atelier pratique · 4 jours / semaine',
+                    niveau: 'Débutant accepté',
+                    diplome: 'Certificat professionnel boucher',
+                    effectif: 'Groupes de 10 stagiaires maximum',
+                    tarif: 'Sur demande (facilités de paiement)'
+                },
+                ar: {
+                    title: 'الجزارة العصرية',
+                    description: 'أتقن فن الجزارة: من استلام اللحوم إلى العرض النهائي.',
+                    image: 'images/Boucherie.png',
+                    programme: [
+                        'النظافة والسلامة الغذائية',
+                        'معرفة اللحوم',
+                        'الاستلام والحفظ',
+                        'التقطيع والتخلص من العظام',
+                        'التقشير والتحضير',
+                        'تقطيع البقر',
+                        'تقطيع الحمل',
+                        'تقطيع الدواجن',
+                        'تحضير اللحوم المفرومة',
+                        'التتبيلات والتحضيرات الجزارية',
+                        'اللحوم المصنعة الأساسية',
+                        'العرض والتغليف',
+                        'إدارة وتنظيم الجزارة',
+                        'موقف تطبيقي مهني'
+                    ],
+                    debouches: [
+                        'جزار في متجر',
+                        'تقني تقطيع',
+                        'مسؤول قسم الجزارة',
+                        'حرفي جزار مستقل'
+                    ],
+                    conditions: [
+                        'لا دبلوم مطلوب',
+                        'شهادة طبية للصلاحية الغذائية'
+                    ],
+                    duree: '6 إلى 9 أشهر',
+                    rythme: 'ورشة عملية · 4 أيام / أسبوع',
+                    niveau: 'المبتدئ مقبول',
+                    diplome: 'شهادة مهنية جزارة',
+                    effectif: 'مجموعات 10 متدرب كحد أقصى',
+                    tarif: 'عند الطلب (تسهيلات الدفع)'
+                }
+            },
+            restaurant: {
+                icon: '🍽️',
+                fr: {
+                    title: 'Service de restaurant',
+                    description: 'Devenez un professionnel du service en salle : accueil, commande, service et relation client.',
+                    image: 'images/Agent de restaurant.png',
+                    programme: [
+                        'Module 1 : Techniques de restaurant, mise en place et service en salle',
+                        'Module 2 : Prise de commande',
+                        'Module 3 : Service des boissons',
+                        'Module 4 : Banquets et service élaboré',
+                        'Module 5 : Communication, relation client',
+                        'Module 6 : Langues appliquées au restaurant',
+                        'Module 7 : Hygiène, sécurité, organisation du travail et environnement professionnel',
+                        'Module 8 : Menus, mets, vins, alcools et connaissance des produits',
+                        'Module 9 : Recherche d\'emploi'
+                    ],
+                    debouches: [
+                        'Serveur / serveuse en restaurant',
+                        'Chef de rang',
+                        'Sommelier',
+                        'Responsable de salle'
+                    ],
+                    conditions: [
+                        'Aucun diplôme exigé',
+                        'Sens du contact et de l\'accueil'
+                    ],
+                    duree: '3 à 6 mois',
+                    rythme: 'Formation pratique · 3 jours / semaine',
+                    niveau: 'Débutant accepté',
+                    diplome: 'Certificat professionnel service restaurant',
+                    effectif: 'Groupes de 12 stagiaires maximum',
+                    tarif: 'Sur demande (facilités de paiement)'
+                },
+                ar: {
+                    title: 'خدمات المطاعم',
+                    description: 'كن محترفاً في خدمة القاعة: الاستقبال، الطلب، الخدمة وعلاقة العملاء.',
+                    image: 'images/Agent de restaurant.png',
+                    programme: [
+                        'الوحدة 1: تقنيات المطعم، الإعداد والخدمة في القاعة',
+                        'الوحدة 2: استلام الطلب',
+                        'الوحدة 3: خدمة المشروبات',
+                        'الوحدة 4: الولائم والخدمة المتقنة',
+                        'الوحدة 5: التواصل، علاقة العملاء',
+                        'الوحدة 6: اللغات المطبقة في المطعم',
+                        'الوحدة 7: النظافة، السلامة، تنظيم العمل والبيئة المهنية',
+                        'الوحدة 8: القوائم، الأطباق، النبيذ، الكحول ومعرفة المنتجات',
+                        'الوحدة 9: البحث عن عمل'
+                    ],
+                    debouches: [
+                        'نادل/ة في مطعم',
+                        'رئيس طاولة',
+                        'ساقي',
+                        'مسؤول قاعة'
+                    ],
+                    conditions: [
+                        'لا دبلوم مطلوب',
+                        'حس التواصل والاستقبال'
+                    ],
+                    duree: '3 إلى 6 أشهر',
+                    rythme: 'تكوين عملي · 3 أيام / أسبوع',
+                    niveau: 'المبتدئ مقبول',
+                    diplome: 'شهادة مهنية خدمة مطعم',
+                    effectif: 'مجموعات 12 متدرب كحد أقصى',
+                    tarif: 'عند الطلب (تسهيلات الدفع)'
+                }
+            },
+            cuisine: {
+                icon: '🍳',
+                fr: {
+                    title: 'Cuisine internationale',
+                    description: 'Maîtrisez les techniques de cuisine internationale et marocaine de haut niveau.',
+                    image: 'images/Cuisine internationale.png',
+                    programme: [
+                        'Module 1 : Métier et formation',
+                        'Module 2 : Hygiène, sécurité et organisation',
+                        'Module 3 : Économie et gestion de stock',
+                        'Module 4 : Techniques fondamentales',
+                        'Module 5 : Pratique et production',
+                        'Module 6 : Communication en milieu de travail',
+                        'Module 7 : Réalisant des prestations culinaires froides',
+                        'Module 8 : Réalisations des préparations culinaires chaudes',
+                        'Module 9 : Dressage des mets',
+                        'Module 10 : Recherche d\'emploi',
+                        'Module 11 : Intégration au milieu de travail'
+                    ],
+                    debouches: [
+                        'Commis cuisine',
+                        'Chef de partie',
+                        'Sous-chef',
+                        'Chef cuisinier'
+                    ],
+                    conditions: [
+                        'Aucun diplôme exigé',
+                        'Certificat médical d\'aptitude alimentaire'
+                    ],
+                    duree: '6 à 12 mois',
+                    rythme: 'Atelier pratique · 4 jours / semaine',
+                    niveau: 'Débutant accepté',
+                    diplome: 'Certificat professionnel cuisine',
+                    effectif: 'Groupes de 12 stagiaires maximum',
+                    tarif: 'Sur demande (facilités de paiement)'
+                },
+                ar: {
+                    title: 'المطبخ الدولي',
+                    description: 'أتقن تقنيات المطبخ العالمي والمغربي بمستوى عالٍ.',
+                    image: 'images/Cuisine internationale.png',
+                    programme: [
+                        'الوحدة 1: المهنة والتكوين',
+                        'الوحدة 2: النظافة، السلامة والتنظيم',
+                        'الوحدة 3: الاقتصاد وإدارة المخزون',
+                        'الوحدة 4: التقنيات الأساسية',
+                        'الوحدة 5: الممارسة والإنتاج',
+                        'الوحدة 6: التواصل في بيئة العمل',
+                        'الوحدة 7: تنفيذ التحضيرات الباردة',
+                        'الوحدة 8: تنفيذ التحضيرات الساخنة',
+                        'الوحدة 9: ترتيب الأطباق',
+                        'الوحدة 10: البحث عن عمل',
+                        'الوحدة 11: الاندماج في بيئة العمل'
+                    ],
+                    debouches: [
+                        'مساعد طباخ',
+                        'رئيس قسم',
+                        'رئيس طباخ مساعد',
+                        'رئيس طباخ'
+                    ],
+                    conditions: [
+                        'لا دبلوم مطلوب',
+                        'شهادة طبية للصلاحية الغذائية'
+                    ],
+                    duree: '6 إلى 12 شهر',
+                    rythme: 'ورشة عملية · 4 أيام / أسبوع',
+                    niveau: 'المبتدئ مقبول',
+                    diplome: 'شهادة مهنية طبخ',
+                    effectif: 'مجموعات 12 متدرب كحد أقصى',
+                    tarif: 'عند الطلب (تسهيلات الدفع)'
+                }
+            },
+            reception: {
+                icon: '🏨',
+                fr: {
+                    title: 'Réception hôtelière',
+                    description: 'Devenez un professionnel de l\'accueil hôtelier : réservation, check-in, relation client.',
+                    image: 'images/Réception hôtelière.png',
+                    programme: [
+                        'Module 1 : Technologie hôtelière',
+                        'Module 2 : Accueil et communication',
+                        'Module 3 : Réservations',
+                        'Check-in / Check-out',
+                        'Module 4 : Facturation et caisse',
+                        'Module 5 : Langue',
+                        'Module 6 : Relation client'
+                    ],
+                    debouches: [
+                        'Réceptionniste en hôtel',
+                        'Concierge',
+                        'Responsable réception',
+                        'Gestionnaire de réservations'
+                    ],
+                    conditions: [
+                        'Aucun diplôme exigé',
+                        'Sens du service et de l\'accueil'
+                    ],
+                    duree: '3 à 6 mois',
+                    rythme: 'Formation pratique · 3 jours / semaine',
+                    niveau: 'Débutant accepté',
+                    diplome: 'Certificat professionnel réception hôtelière',
+                    effectif: 'Groupes de 12 stagiaires maximum',
+                    tarif: 'Sur demande (facilités de paiement)'
+                },
+                ar: {
+                    title: 'الاستقبال الفندقي',
+                    description: 'كن محترفاً في الاستقبال الفندقي: الحجز، تسجيل الوصول، علاقة العملاء.',
+                    image: 'images/Réception hôtelière.png',
+                    programme: [
+                        'الوحدة 1: التكنولوجيا الفندقية',
+                        'الوحدة 2: الاستقبال والتواصل',
+                        'الوحدة 3: الحجوزات',
+                        'تسجيل الوصول / المغادرة',
+                        'الوحدة 4: الفوترة والصندوق',
+                        'الوحدة 5: اللغة',
+                        'الوحدة 6: علاقة العملاء'
+                    ],
+                    debouches: [
+                        'موظف استقبال في فندق',
+                        'كونسيرج',
+                        'مسؤول استقبال',
+                        'مدير حجوزات'
+                    ],
+                    conditions: [
+                        'لا دبلوم مطلوب',
+                        'حس الخدمة والاستقبال'
+                    ],
+                    duree: '3 إلى 6 أشهر',
+                    rythme: 'تكوين عملي · 3 أيام / أسبوع',
+                    niveau: 'المبتدئ مقبول',
+                    diplome: 'شهادة مهنية استقبال فندقي',
+                    effectif: 'مجموعات 12 متدرب كحد أقصى',
+                    tarif: 'عند الطلب (تسهيلات الدفع)'
+                }
+            },
+            gateaux: {
+                icon: '🧁',
+                fr: {
+                    title: 'Gâteaux marocains',
+                    description: 'Maîtrisez l\'art de la pâtisserie marocaine traditionnelle : ghriba, cornes de gazelle, chebakia et plus.',
+                    image: 'images/Gâteaux marocains.png',
+                    programme: [
+                        'Pâtes & techniques de préparation',
+                        'Travail des amandes & fruits secs',
+                        'Ghriba & sablés marocains',
+                        'Cornes de gazelle',
+                        'Chebakia',
+                        'Briouates sucrées',
+                        'Fekkas & biscuits marocains',
+                        'Pâtisseries traditionnelles',
+                        'Pâtisseries aux amandes',
+                        'Décoration & finition',
+                        'Façonnage & modelage',
+                        'Présentation & dressage',
+                        'Création & personnalisation'
+                    ],
+                    debouches: [
+                        'Pâtissier marocain',
+                        'Traiteur de pâtisserie marocaine',
+                        'Créateur de pâtisseries traditionnelles',
+                        'Vente de pâtisseries marocaines'
+                    ],
+                    conditions: [
+                        'Aucun diplôme exigé',
+                        'Passion pour la pâtisserie traditionnelle'
+                    ],
+                    duree: '4 à 8 mois',
+                    rythme: 'Atelier pratique · 3 à 5 séances / semaine',
+                    niveau: 'Débutant accepté',
+                    diplome: 'Certificat professionnel pâtisserie marocaine',
+                    effectif: 'Groupes de 12 stagiaires maximum',
+                    tarif: 'Sur demande (matières premières incluses)'
+                },
+                ar: {
+                    title: 'الحلويات المغربية التقليدية',
+                    description: 'أتقن فن الحلويات المغربية التقليدية: الغريبة، قرون الغزال، الشباكية والمزيد.',
+                    image: 'images/Gâteaux marocains.png',
+                    programme: [
+                        'العجائن وتقنيات التحضير',
+                        'عمل اللوز والفواكه الجافة',
+                        'الغريبة والسكريات المغربية',
+                        'قرون الغزال',
+                        'الشباكية',
+                        'البريوات الحلوة',
+                        'الفكاس والبسكويت المغربي',
+                        'الحلويات التقليدية',
+                        'حلويات اللوز',
+                        'التزيين والإنهاء',
+                        'التشكيل والنمذجة',
+                        'العرض والترتيب',
+                        'الإنشاء والتخصيص'
+                    ],
+                    debouches: [
+                        'حلواني مغربي',
+                        'تموين حلويات مغربية',
+                        'مبدع حلويات تقليدية',
+                        'بيع الحلويات المغربية'
+                    ],
+                    conditions: [
+                        'لا دبلوم مطلوب',
+                        'شغف بالحلويات التقليدية'
+                    ],
+                    duree: '4 إلى 8 أشهر',
+                    rythme: 'ورشة عملية · 3 إلى 5 حصص أسبوعياً',
+                    niveau: 'المبتدئ مقبول',
+                    diplome: 'شهادة مهنية حلويات مغربية',
+                    effectif: 'مجموعات 12 متدرب كحد أقصى',
+                    tarif: 'عند الطلب (المواد الأولية مشمولة)'
+                }
+            },
+            langues: {
+                icon: '🌍',
+                fr: {
+                    title: 'Langues',
+                    description: 'Développez vos compétences linguistiques et professionnelles pour mieux communiquer, accueillir les clients et évoluer dans un environnement de travail national ou international.',
+                    image: 'images/Langues.png',
+                    programme: [
+                        'Module 1 : Communication orale et expression',
+                        'Module 2 : Compréhension et expression écrite',
+                        'Module 3 : Grammaire et vocabulaire professionnel',
+                        'Module 4 : Français professionnel',
+                        'Module 5 : Anglais professionnel',
+                        'Module 6 : Communication avec les clients',
+                        'Module 7 : Accueil et relation professionnelle',
+                        'Module 8 : Communication téléphonique et numérique',
+                        'Module 9 : Techniques de présentation et prise de parole',
+                        'Module 10 : Communication interculturelle',
+                        'Module 11 : Préparation aux entretiens d\'embauche',
+                        'Module 12 : Mise en situation professionnelle'
+                    ],
+                    debouches: [
+                        'Tourisme et hôtellerie',
+                        'Commerce international',
+                        'Traduction et interprétariat',
+                        'Enseignement des langues'
+                    ],
+                    conditions: [
+                        'Aucun diplôme exigé',
+                        'Motivation pour l\'apprentissage'
+                    ],
+                    duree: '3 à 9 mois',
+                    rythme: 'Cours intensifs · 3 à 5 séances / semaine',
+                    niveau: 'Tous niveaux',
+                    diplome: 'Certificat de compétence linguistique',
+                    effectif: 'Groupes de 15 stagiaires maximum',
+                    tarif: 'Sur demande (facilités de paiement)'
+                },
+                ar: {
+                    title: 'اللغات الدولية',
+                    description: 'طور مهاراتك اللغوية والمهنية للتواصل بشكل أفضل، استقبال العملاء والتطور في بيئة عمل وطنية أو دولية.',
+                    image: 'images/Langues.png',
+                    programme: [
+                        'الوحدة 1: التواصل الشفهي والتعبير',
+                        'الوحدة 2: الفهم والتعبير الكتابي',
+                        'الوحدة 3: القواعد والمفردات المهنية',
+                        'الوحدة 4: الفرنسية المهنية',
+                        'الوحدة 5: الإنجليزية المهنية',
+                        'الوحدة 6: التواصل مع العملاء',
+                        'الوحدة 7: الاستقبال والعلاقة المهنية',
+                        'الوحدة 8: التواصل الهاتفي والرقمي',
+                        'الوحدة 9: تقنيات العرض والتحدث',
+                        'الوحدة 10: التواصل بين الثقافات',
+                        'الوحدة 11: التحضير لمقابلات التوظيف',
+                        'الوحدة 12: الوضع في بيئة مهنية'
+                    ],
+                    debouches: [
+                        'السياحة والفنادق',
+                        'التجارة الدولية',
+                        'الترجمة والتفسير',
+                        'تدريس اللغات'
+                    ],
+                    conditions: [
+                        'لا دبلوم مطلوب',
+                        'الدافع للتعلم'
+                    ],
+                    duree: '3 إلى 9 أشهر',
+                    rythme: 'دروس مكثفة · 3 إلى 5 حصص / أسبوع',
+                    niveau: 'جميع المستويات',
+                    diplome: 'شهادة كفاءة لغوية',
+                    effectif: 'مجموعات 15 متدرب كحد أقصى',
+                    tarif: 'عند الطلب (تسهيلات الدفع)'
+                }
+            }
+        };
+
+        // Get formation from URL parameter
+        function getFormationFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const formationId = urlParams.get('f');
+            return formations[formationId] || formations.coiffure;
+        }
+
+        // Load formation data
+        function loadFormation() {
+            const formation = getFormationFromUrl();
+            const langData = formation[currentLang] || formation.fr;
+            
+            document.getElementById('formationIcon').textContent = formation.icon;
+            document.getElementById('formationTitle').textContent = langData.title;
+            document.getElementById('formationDescription').textContent = langData.description;
+            
+            // Set background image
+            if (langData.image) {
+                document.querySelector('.formation-hero').style.backgroundImage = `url('${langData.image}')`;
+            }
+            
+            // Load programme
+            const programmeList = document.getElementById('formationProgramme');
+            programmeList.innerHTML = langData.programme.map(item => 
+                `<li><i class="fas fa-check"></i> ${item}</li>`
+            ).join('');
+            
+            // Load debouches
+            const debouchesList = document.getElementById('formationDebouches');
+            debouchesList.innerHTML = langData.debouches.map(item => 
+                `<li><i class="fas fa-briefcase"></i> ${item}</li>`
+            ).join('');
+            
+            // Load conditions
+            const conditionsList = document.getElementById('formationConditions');
+            conditionsList.innerHTML = langData.conditions.map(item => 
+                `<li><i class="fas fa-user-check"></i> ${item}</li>`
+            ).join('');
+            
+            // Load info card
+            document.getElementById('infoDuree').textContent = langData.duree;
+            document.getElementById('infoRythme').textContent = langData.rythme;
+            document.getElementById('infoNiveau').textContent = langData.niveau;
+            document.getElementById('infoDiplome').textContent = langData.diplome;
+            document.getElementById('infoEffectif').textContent = langData.effectif;
+            document.getElementById('infoTarif').textContent = langData.tarif;
+        }
+
+        // Toggle mobile menu
+        function toggleMenu() {
+            document.querySelector('.menu-links').classList.toggle('show');
+        }
+
+        // Language Translation System
+        const translations = {
+            fr: {
+                'nav.home': 'Accueil',
+                'nav.services': 'Services',
+                'nav.gallery': 'Réalisation',
+                'nav.about': 'À propos',
+                'nav.contact': 'Contact',
+                'back.formations': 'Toutes les formations',
+                'formation.title': 'Coiffure & Esthétique',
+                'formation.description': 'Maîtrisez les techniques de coupe, de coloration et de soins esthétiques pour travailler en salon ou ouvrir le vôtre.',
+                'formation.register': "S'inscrire",
+                'formation.call': 'Appeler le centre',
+                'formation.program': 'Programme de la formation',
+                'formation.careers': 'Débouchés',
+                'formation.conditions': "Conditions d'accès",
+                'formation.info': 'Informations pratiques',
+                'formation.duration': 'Durée',
+                'formation.schedule': 'Rythme',
+                'formation.level': 'Niveau',
+                'formation.diploma': 'Diplôme',
+                'formation.groupSize': 'Effectif',
+                'formation.price': 'Tarif',
+                'formation.apply': 'Demander une inscription',
+                'formation.viewWorks': 'Voir les réalisations',
+                'footer.copy': '© 2024 FITAT Formation. Tous droits réservés.'
+            },
+            ar: {
+                'nav.home': 'الرئيسية',
+                'nav.services': 'الخدمات',
+                'nav.gallery': 'الإنجازات',
+                'nav.about': 'من نحن',
+                'nav.contact': 'اتصل بنا',
+                'back.formations': 'جميع التكوينات',
+                'formation.title': 'الحلاقة والتجميل',
+                'formation.description': 'أتقن تقنيات القص والتلوين والعناية الجمالية للعمل في صالون أو افتتاح صالونك الخاص.',
+                'formation.register': 'سجل',
+                'formation.call': 'اتصل بالمركز',
+                'formation.program': 'برنامج التكوين',
+                'formation.careers': 'المخرجات',
+                'formation.conditions': 'شروط القبول',
+                'formation.info': 'معلومات عملية',
+                'formation.duration': 'المدة',
+                'formation.schedule': 'الإيقاع',
+                'formation.level': 'المستوى',
+                'formation.diploma': 'الشهادة',
+                'formation.groupSize': 'عدد المجموعة',
+                'formation.price': 'السعر',
+                'formation.apply': 'طلب التسجيل',
+                'formation.viewWorks': 'عرض الإنجازات',
+                'footer.copy': '© 2024 فتات التكوين. جميع الحقوق محفوظة.'
+            }
+        };
+
+        let currentLang = 'fr';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            const html = document.documentElement;
+            
+            // Update HTML lang and dir attributes
+            html.setAttribute('lang', lang);
+            html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            
+            // Update font family for Arabic
+            if (lang === 'ar') {
+                document.body.style.fontFamily = 'var(--font-arabic), var(--font-sans), sans-serif';
+            } else {
+                document.body.style.fontFamily = 'var(--font-sans), sans-serif';
+            }
+            
+            // Update language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.dataset.i18n;
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+            
+            // Reload formation data with new language
+            loadFormation();
+            
+            // Save language preference to localStorage
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
+            switchLanguage(savedLang);
+        });
+
+        // Load formation on page load
+        document.addEventListener('DOMContentLoaded', loadFormation);
+    </script>
+</body>
+</html>

@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centre de formation | FITAT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,400&family=Montserrat:wght@200;400;500;600&family=Noto+Kufi+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- BRANDING DESIGN SYSTEM & ROOT VARIABLES --- */
+        :root {
+            --bg-deep: #ffffff;
+            --bg-pure: #f8f9fa;
+            --gold-primary: #0d47a1;
+            --gold-light: #e3f2fd;
+            --gold-dark: #1565c0;
+            --text-light: #0a192f;
+            --text-muted: #546e7a;
+            --glass-card: rgba(255, 255, 255, 0.9);
+            --glass-border: rgba(13, 71, 161, 0.15);
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+            --font-arabic: 'Noto Kufi Arabic', sans-serif;
+            --curve: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* --- GLOBAL BASICS --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-pure);
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-deep);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 0 2.5rem;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* --- SCROLLBAR DESIGN --- */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-pure);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--bg-deep), var(--gold-primary));
+            border-radius: 4px;
+        }
+
+        /* --- STUNNING LIGHT GLOWS & REFLECTIONS (BACKGROUND) --- */
+        .ambient-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(13, 71, 161, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* --- STICKY TRANSPARENT NAVIGATION --- */
+        .header-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.8rem 0;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), transparent);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(13, 71, 161, 0.1);
+            transition: all 0.4s var(--curve);
+        }
+
+        .header-nav.sticky {
+            padding: 1rem 0;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid var(--glass-border);
+            backdrop-filter: blur(15px);
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-identity {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            font-weight: 500;
+            color: var(--gold-primary);
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .nav-logo{
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+            border-radius: 50%;
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-right: 2rem;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(13, 71, 161, 0.2);
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            color: var(--text-muted);
+        }
+
+        .lang-btn:hover {
+            background: rgba(13, 71, 161, 0.1);
+            color: var(--gold-primary);
+        }
+
+        .lang-btn.active {
+            background: var(--gold-primary);
+            color: #ffffff;
+            border-color: var(--gold-primary);
+        }
+
+        .lang-divider {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* RTL Support */
+        [dir="rtl"] .menu-links {
+            flex-direction: row;
+        }
+
+        [dir="rtl"] .lang-switcher {
+            margin-right: 2rem;
+            margin-left: 0;
+        }
+
+        [dir="rtl"] .brand-identity {
+            flex-direction: row;
+        }
+
+        [dir="rtl"] .brand-identity span {
+            border-left: 1px solid rgba(13, 71, 161, 0.3);
+            border-right: none;
+            padding-left: 12px;
+            padding-right: 0;
+        }
+
+        /* Desktop RTL only */
+        @media (min-width: 769px) {
+            [dir="rtl"] .nav-flex {
+                flex-direction: row-reverse;
+            }
+        }
+
+        [dir="rtl"] .hero-split {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        [dir="rtl"] .hero-content {
+            text-align: right;
+        }
+
+        [dir="rtl"] .feature-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        [dir="rtl"] .feature-card {
+            text-align: right;
+        }
+
+        [dir="rtl"] .back-nav {
+            flex-direction: row-reverse;
+        }
+
+        .brand-identity span {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            border-left: 1px solid rgba(13, 71, 161, 0.3);
+            padding-left: 12px;
+        }
+
+        .menu-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .menu-links a {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            font-weight: 400;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .menu-links a:hover, .menu-links a.active {
+            color: var(--gold-primary);
+        }
+
+        .menu-links a.btn-gold {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 50%, var(--gold-light) 100%);
+            color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(13, 71, 161, 0.2);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+        }
+
+        .menu-links a.btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(13, 71, 161, 0.35);
+        }
+
+        .menu-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--gold-primary);
+            transition: width 0.3s ease;
+        }
+
+        .menu-links a:hover::after {
+            width: 100%;
+        }
+
+        /* --- SECTION HEADER --- */
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tagline {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--gold-primary);
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .title-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--gold-primary);
+            margin: 1.5rem auto 0 auto;
+        }
+
+        /* --- PREMIUM BUTTON DESIGN --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.1rem 2.4rem;
+            font-size: 0.8rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            font-weight: 500;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.4s var(--curve);
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 50%, var(--gold-light) 100%);
+            color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(13, 71, 161, 0.2);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(13, 71, 161, 0.35);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(13, 71, 161, 0.3);
+            color: var(--text-light);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold-primary);
+            color: var(--gold-primary);
+            background: rgba(13, 71, 161, 0.05);
+            transform: translateY(-3px);
+        }
+
+        /* --- FORMATION HERO ARCHITECTURE --- */
+        .formation-hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            padding: 8rem 0 4rem;
+            margin: 0 calc(-50vw + 50%);
+            width: 100vw;
+        }
+
+        .formation-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(7, 48, 95, 0.55), rgba(13, 71, 161, 0.50)),
+                url("images/Centre%20de%20formation.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation: slowPan 8s ease-in-out infinite alternate;
+            z-index: 0;
+        }
+
+        @media (min-width: 769px) {
+            .formation-hero-bg {
+                background-position: center top 15%;
+            }
+        }
+
+        @keyframes slowPan {
+            0% {
+                transform: scale(1.02) translateY(0px);
+            }
+            100% {
+                transform: scale(1.08) translateY(-10px);
+            }
+        }
+
+        .formation-hero-wrapper {
+            position: relative;
+            max-width: 1200px;
+            padding: 0 2rem;
+            z-index: 2;
+        }
+
+        .formation-badge {
+            display: inline-block;
+            background: rgba(13, 71, 161, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(13, 71, 161, 0.4);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            animation: fadeInDown 1s var(--curve);
+        }
+
+        .formation-badge span {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .formation-hero h1 {
+            font-family: var(--font-serif);
+            font-size: 4.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: #ffffff;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            animation: fadeInDown 1.5s var(--curve) 0.2s backwards;
+        }
+
+        .formation-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            animation: fadeInUp 1.5s var(--curve) 0.4s backwards;
+        }
+
+        .formation-buttons-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1.5s var(--curve) 0.6s backwards;
+        }
+
+        .formation-btn {
+            padding: 0.9rem 1.8rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s var(--curve);
+            border: 2px solid;
+        }
+
+        .formation-btn-primary {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 50%, var(--gold-light) 100%);
+            border-color: var(--gold-primary);
+            color: #ffffff;
+        }
+
+        .formation-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(13, 71, 161, 0.3);
+        }
+
+        .formation-btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+            color: #ffffff;
+            backdrop-filter: blur(5px);
+        }
+
+        .formation-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #ffffff;
+            transform: translateY(-3px);
+        }
+
+        .formation-btn-cta {
+            background: rgba(227, 242, 253, 0.3);
+            border-color: rgba(13, 71, 161, 0.3);
+            color: var(--gold-primary);
+            backdrop-filter: blur(5px);
+        }
+
+        .formation-btn-cta:hover {
+            background: rgba(227, 242, 253, 0.5);
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+        }
+
+        .formation-stats {
+            display: flex;
+            gap: 4rem;
+            justify-content: center;
+            margin-top: 3rem;
+            animation: fadeInUp 1.5s var(--curve) 0.8s backwards;
+        }
+
+        .formation-stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .formation-stat-number {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+        }
+
+        .formation-stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .formation-ripple {
+            position: absolute;
+            bottom: -150px;
+            right: -150px;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            border: 2px solid rgba(13, 71, 161, 0.2);
+            z-index: 1;
+            animation: ripple 4s ease-in-out infinite;
+        }
+
+        .formation-ripple::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+            border: 1px solid rgba(13, 71, 161, 0.15);
+        }
+
+        @keyframes ripple {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .formation-hero {
+                padding: 6rem 0 3rem;
+                min-height: auto;
+            }
+
+            .formation-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .formation-description {
+                font-size: 1rem;
+            }
+
+            .formation-buttons-row {
+                flex-wrap: wrap;
+                gap: 0.8rem;
+            }
+
+            .formation-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.75rem;
+                flex: 1 1 calc(50% - 0.4rem);
+                min-width: 150px;
+            }
+
+            .formation-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .formation-stat-number {
+                font-size: 2.5rem;
+            }
+
+            .formation-ripple {
+                width: 300px;
+                height: 300px;
+                bottom: -75px;
+                right: -75px;
+            }
+        }
+
+        /* --- SERVICE DETAIL PAGE STYLES --- */
+        .service-detail {
+            padding: 0 0 6rem;
+            min-height: 100vh;
+        }
+
+        .service-hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-bottom: 5rem;
+        }
+
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(13, 71, 161, 0.85) 0%, rgba(21, 101, 192, 0.75) 100%);
+            z-index: 1;
+        }
+
+        .service-hero > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .back-nav {
+            position: absolute;
+            top: 2rem;
+            left: 2.5rem;
+            z-index: 3;
+        }
+
+        .back-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            transition: color 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-nav a:hover {
+            color: var(--gold-primary);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .service-hero .icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .service-hero h1 {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            color: var(--gold-primary);
+        }
+
+        .service-hero .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .service-hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .service-section {
+            margin-bottom: 5rem;
+        }
+
+        .service-section h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--gold-primary);
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .service-section p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--text-muted);
+            font-size: 1rem;
+            padding: 1rem;
+            background: var(--glass-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .service-list li:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-2px);
+        }
+
+        .service-list li i {
+            color: var(--gold-primary);
+            font-size: 1.2rem;
+        }
+
+        .formations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .formation-card {
+            background: var(--glass-card);
+            border: 1px solid var(--glass-border);
+            padding: 2.5rem;
+            border-radius: 4px;
+            transition: all 0.4s var(--curve);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .formation-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.08);
+        }
+
+        .formation-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .formation-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .formation-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .formation-card .btn {
+            width: 100%;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--glass-card);
+            border: 1px solid var(--glass-border);
+            padding: 2rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-5px);
+        }
+
+        .info-card h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card p {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 0;
+            background: var(--glass-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 4px;
+            margin-top: 5rem;
+        }
+
+        .cta-section .btn {
+            margin: 0 1rem;
+        }
+
+        /* --- FOOTER ARCHITECTURE --- */
+        .main-footer {
+            padding: 5rem 0;
+            background: #0a192f;
+            text-align: center;
+            border-top: 1px solid rgba(13, 71, 161, 0.2);
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: var(--gold-primary);
+        }
+
+        .footer-sig {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--gold-primary);
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo{
+            height: 90px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .footer-line {
+            width: 50px;
+            height: 1px;
+            background: var(--glass-border);
+            margin: 0 auto 2rem auto;
+        }
+
+        .footer-copy {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .footer-keywords {
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* --- FLOATING ACCESSIBILITY UTILITIES --- */
+        .whatsapp-link {
+            position: fixed;
+            bottom: 35px;
+            right: 35px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            z-index: 999;
+            transition: transform 0.3s var(--curve);
+        }
+
+        .whatsapp-link:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        /* --- BASIC SYSTEM KEYFRAME ANIMATIONS --- */
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- RESPONSIVE ADAPTABILITY SYSTEM --- */
+        @media (max-width: 1100px) {
+            .service-hero h1 { font-size: 3rem; }
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .menu-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                z-index: 999;
+                background: rgba(7,7,8,0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+                padding: 2rem 0;
+                display: none;
+            }
+
+            .menu-links.show {
+                display: flex;
+            }
+
+            /* RTL Mobile - Force same structure as French */
+            [dir="rtl"] .menu-links {
+                flex-direction: column !important;
+                align-items: center !important;
+                left: 0 !important;
+                right: auto !important;
+            }
+
+            [dir="rtl"] .nav-flex {
+                flex-direction: row !important;
+                justify-content: space-between !important;
+            }
+
+            [dir="rtl"] .brand-identity {
+                flex-direction: row !important;
+            }
+
+            [dir="rtl"] .brand-identity span {
+                border-left: 1px solid rgba(13, 71, 161, 0.3) !important;
+                border-right: none !important;
+                padding-left: 12px !important;
+                padding-right: 0 !important;
+            }
+
+            /* RTL Mobile Fixes */
+            [dir="rtl"] .service-hero h1 {
+                font-size: 1.8rem;
+                line-height: 1.4;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            [dir="rtl"] .service-hero .subtitle {
+                font-size: 0.9rem;
+                line-height: 1.6;
+                padding: 0 1rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            [dir="rtl"] .service-hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 280px;
+            }
+
+            [dir="rtl"] .btn {
+                width: 100%;
+                font-size: 14px;
+                padding: 0 16px;
+                white-space: normal;
+                word-wrap: break-word;
+            }
+
+            [dir="rtl"] .service-content h3 {
+                font-size: 1.2rem;
+                line-height: 1.4;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            [dir="rtl"] .service-content p {
+                font-size: 0.85rem;
+                line-height: 1.6;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            [dir="rtl"] .service-list li {
+                font-size: 0.85rem;
+                line-height: 1.5;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            [dir="rtl"] .formation-card h3 {
+                font-size: 1.1rem;
+                line-height: 1.4;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            [dir="rtl"] .formation-card p {
+                font-size: 0.85rem;
+                line-height: 1.5;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            [dir="rtl"] .info-card h4 {
+                font-size: 0.7rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            [dir="rtl"] .info-card p {
+                font-size: 0.9rem;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            [dir="rtl"] .cta-section {
+                padding: 2rem 1rem;
+            }
+
+            [dir="rtl"] .cta-section .btn {
+                margin: 0.5rem 0;
+                width: 100%;
+                max-width: 280px;
+            }
+
+            [dir="rtl"] .footer-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            [dir="rtl"] .footer-nav a {
+                font-size: 0.85rem;
+            }
+
+            .service-hero {
+                min-height: 60vh;
+            }
+
+            .back-nav {
+                top: 1rem;
+                left: 1rem;
+            }
+
+            .service-hero .icon {
+                width: 80px;
+                height: 80px;
+                font-size: 3rem;
+            }
+
+            .service-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .service-hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .service-hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .service-hero-buttons .btn {
+                width: 100%;
+            }
+
+            .footer-nav {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .footer-logo{
+                height: 75px;
+            }
+
+            .cta-section .btn {
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="ambient-glow" style="top: 15vh; left: -10vw;"></div>
+    <div class="ambient-glow" style="top: 120vh; right: -10vw;"></div>
+
+    <a href="https://wa.me/212620007204" class="whatsapp-link" target="_blank" aria-label="Contact WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <nav class="header-nav" id="mainNav">
+        <div class="container nav-flex">
+            <a href="index.html" class="brand-identity">
+                <img src="logo.jpg" alt="FITAT Logo" class="nav-logo">
+                <span>FITAT</span>
+            </a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="menu-links">
+                <a href="index.html" data-i18n="nav.home">Accueil</a>
+                <a href="services.html" data-i18n="nav.services">Services</a>
+                <a href="realisations.html" data-i18n="nav.gallery">Réalisation</a>
+                <a href="index.html#apropos" data-i18n="nav.about">À propos</a>
+                <a href="index.html#contact" class="btn btn-gold" data-i18n="nav.contact">Contact</a>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="fr" onclick="switchLanguage('fr')">FR</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="ar" onclick="switchLanguage('ar')">العربية</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="service-detail">
+        <div class="container">
+            
+            <div class="back-nav">
+                <a href="services.html" data-i18n="back.services">
+                    <i class="fas fa-arrow-left"></i>
+                    Tous les services
+                </a>
+            </div>
+
+            <div class="formation-hero">
+                <div class="formation-hero-bg"></div>
+                <div class="formation-hero-wrapper">
+                    <div class="formation-badge">
+                        <span data-i18n="hero.badge">CENTRE DE FORMATION AGREE</span>
+                    </div>
+                    <h1 data-i18n="hero.title">FORMEZ-VOUS AUX MÉTIERS QUI<br>RECRUTENT</h1>
+                    <p class="formation-description" data-i18n="hero.description">
+                        FITAT Formation accompagne les jeunes et les professionnels avec des parcours pratiques, encadrés par des formateurs experts et orientés vers l'emploi.
+                    </p>
+                    
+                    <div class="formation-buttons-row">
+                        <a href="formation.html?f=coiffure" class="formation-btn formation-btn-primary" data-i18n="hero.btn.coiffure">Coiffure & Esthétique</a>
+                        <a href="formation.html?f=couture" class="formation-btn formation-btn-primary" data-i18n="hero.btn.couture">Couture & Stylisme</a>
+                        <a href="formation.html?f=patisserie" class="formation-btn formation-btn-secondary" data-i18n="hero.btn.patisserie">Pâtisserie & Cuisine</a>
+                        <a href="formation.html?f=informatique" class="formation-btn formation-btn-secondary" data-i18n="hero.btn.informatique">Informatique & Bureautique</a>
+                    </div>
+                    
+                    <div class="formation-buttons-row">
+                        <a href="formation.html?f=electricite" class="formation-btn formation-btn-secondary" data-i18n="hero.btn.electricite">Électricité & Maintenance</a>
+                        <a href="index.html#contact" class="formation-btn formation-btn-cta" data-i18n="hero.btn.register">S'inscrire maintenant →</a>
+                    </div>
+
+                    <div class="formation-stats">
+                        <div class="formation-stat-item">
+                            <span class="formation-stat-number" data-i18n="hero.stat1">+1200</span>
+                            <span class="formation-stat-label" data-i18n="hero.stat1label">STAGIAIRES FORMÉS</span>
+                        </div>
+                        <div class="formation-stat-item">
+                            <span class="formation-stat-number" data-i18n="hero.stat2">+15</span>
+                            <span class="formation-stat-label" data-i18n="hero.stat2label">FILIÈRES</span>
+                        </div>
+                        <div class="formation-stat-item">
+                            <span class="formation-stat-number" data-i18n="hero.stat3">92%</span>
+                            <span class="formation-stat-label" data-i18n="hero.stat3label">TAUX DE RÉUSSITE</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="formation-ripple"></div>
+            </div>
+
+            <div class="service-section">
+                <h2 data-i18n="service.presentation">Présentation</h2>
+                <p data-i18n="service.p1">
+                    Chez FITAT, 70% du temps de formation est consacré à la pratique. Nos ateliers équipés, nos formateurs professionnels du terrain et notre suivi individualisé permettent à chaque stagiaire de sortir avec un vrai savoir-faire, prêt pour l'emploi ou l'entrepreneuriat.
+                </p>
+                <p data-i18n="service.p2">
+                    Découvrez ci-dessous l'ensemble de nos filières et accédez au programme détaillé, à la durée et aux conditions d'accès de chacune d'entre elles.
+                </p>
+            </div>
+
+            <div class="service-section">
+                <h2 data-i18n="service.propositionsTitle">Ce que nous proposons</h2>
+                <ul class="service-list">
+                    <li>
+                        <i class="fas fa-check"></i>
+                        <span data-i18n="service.prop1">Ateliers équipés et groupes réduits</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check"></i>
+                        <span data-i18n="service.prop2">Formateurs professionnels du terrain</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check"></i>
+                        <span data-i18n="service.prop3">Stages en entreprise et aide à l'insertion</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check"></i>
+                        <span data-i18n="service.prop4">Attestations et diplômes reconnus</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="service-section">
+                <h2 data-i18n="service.formationsTitle">Nos filières de formation</h2>
+                <div class="formations-grid">
+                    
+                    <a href="formation.html?f=coiffure" class="formation-card">
+                        <div class="icon">✂️</div>
+                        <h3 data-i18n="formation.coiffure">Coiffure & Esthétique</h3>
+                        <p data-i18n="formation.coiffureDesc">Maîtrisez les techniques de coupe, de coloration et de soins esthétiques pour travailler en salon ou ouvrir le vôtre.</p>
+                        <span class="btn btn-outline" data-i18n="formation.viewDetails">Voir les détails →</span>
+                    </a>
+
+                    <a href="formation.html?f=couture" class="formation-card">
+                        <div class="icon">🧵</div>
+                        <h3 data-i18n="formation.couture">Couture & Stylisme</h3>
+                        <p data-i18n="formation.coutureDesc">De la prise de mesures à la collection finie : apprenez le patronage, le montage et la création de modèles.</p>
+                        <span class="btn btn-outline" data-i18n="formation.viewDetails">Voir les détails →</span>
+                    </a>
+
+                    <a href="formation.html?f=patisserie" class="formation-card">
+                        <div class="icon">🍰</div>
+                        <h3 data-i18n="formation.patisserie">Pâtisserie & Cuisine</h3>
+                        <p data-i18n="formation.patisserieDesc">Bases professionnelles de la pâtisserie, de la viennoiserie et de la cuisine marocaine et internationale.</p>
+                        <span class="btn btn-outline" data-i18n="formation.viewDetails">Voir les détails →</span>
+                    </a>
+
+                    <a href="formation.html?f=informatique" class="formation-card">
+                        <div class="icon">💻</div>
+                        <h3 data-i18n="formation.informatique">Informatique & Bureautique</h3>
+                        <p data-i18n="formation.informatiqueDesc">Devenez autonome sur l'ordinateur : bureautique, infographie, web et réseaux sociaux professionnels.</p>
+                        <span class="btn btn-outline" data-i18n="formation.viewDetails">Voir les détails →</span>
+                    </a>
+
+                    <a href="formation.html?f=electricite" class="formation-card">
+                        <div class="icon">⚡</div>
+                        <h3 data-i18n="formation.electricite">Électricité & Maintenance</h3>
+                        <p data-i18n="formation.electriciteDesc">Formation 100% pratique en atelier : installation, dépannage, froid et climatisation.</p>
+                        <span class="btn btn-outline" data-i18n="formation.viewDetails">Voir les détails →</span>
+                    </a>
+
+                    <a href="formation.html?f=gestion" class="formation-card">
+                        <div class="icon">📈</div>
+                        <h3 data-i18n="formation.gestion">Gestion & Entrepreneuriat</h3>
+                        <p data-i18n="formation.gestionDesc">Comptabilité, marketing et pilotage : tout pour gérer une petite entreprise ou lancer son projet.</p>
+                        <span class="btn btn-outline" data-i18n="formation.viewDetails">Voir les détails →</span>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="service-section">
+                <h2 data-i18n="service.infoTitle">Informations pratiques</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4 data-i18n="service.filieres">Filières</h4>
+                        <p data-i18n="service.filieresValue">6 filières professionnalisantes</p>
+                    </div>
+                    <div class="info-card">
+                        <h4 data-i18n="service.rythme">Rythme</h4>
+                        <p data-i18n="service.rythmeValue">Présentiel, groupes réduits</p>
+                    </div>
+                    <div class="info-card">
+                        <h4 data-i18n="service.diplome">Diplôme</h4>
+                        <p data-i18n="service.diplomeValue">Attestations & diplômes reconnus</p>
+                    </div>
+                    <div class="info-card">
+                        <h4 data-i18n="service.inscription">Inscription</h4>
+                        <p data-i18n="service.inscriptionValue">Ouverte toute l'année</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <a href="index.html#contact" class="btn btn-gold" data-i18n="service.quote">Demander un devis</a>
+                <a href="realisations.html" class="btn btn-outline" data-i18n="service.viewWorks">Voir nos réalisations</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-nav">
+                <a href="index.html" data-i18n="nav.home">Accueil</a>
+                <a href="services.html" data-i18n="nav.services">Services</a>
+                <a href="realisations.html" data-i18n="nav.gallery">Réalisation</a>
+                <a href="index.html#apropos" data-i18n="nav.about">À propos</a>
+                <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
+            </div>
+            <div class="footer-sig">
+                <img src="logo.jpg" alt="FITAT Logo" class="footer-logo">
+            </div>
+            <div class="footer-line"></div>
+            <p class="footer-copy">© 2026 FITAT. Tous droits réservés.</p>
+            <p class="footer-keywords">Formation · Consultation · Traiteur · Logiciel · Menus · Maroc</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Sticky Header switch engine on scrolling thresholds
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 60) {
+                nav.classList.add('sticky');
+            } else {
+                nav.classList.remove('sticky');
+            }
+        });
+
+        function toggleMenu() {
+            document.querySelector('.menu-links').classList.toggle('show');
+        }
+
+        // Language Translation System
+        const translations = {
+            fr: {
+                'nav.home': 'Accueil',
+                'nav.services': 'Services',
+                'nav.gallery': 'Réalisation',
+                'nav.about': 'À propos',
+                'nav.contact': 'Contact',
+                'back.services': 'Tous les services',
+                'hero.badge': 'CENTRE DE FORMATION AGREE',
+                'hero.title': 'FORMEZ-VOUS AUX MÉTIERS QUI<br>RECRUTENT',
+                'hero.description': 'FITAT Formation accompagne les jeunes et les professionnels avec des parcours pratiques, encadrés par des formateurs experts et orientés vers l\'emploi.',
+                'hero.btn.coiffure': 'Coiffure & Esthétique',
+                'hero.btn.couture': 'Couture & Stylisme',
+                'hero.btn.patisserie': 'Pâtisserie & Cuisine',
+                'hero.btn.informatique': 'Informatique & Bureautique',
+                'hero.btn.electricite': 'Électricité & Maintenance',
+                'hero.btn.register': 'S\'inscrire maintenant →',
+                'hero.stat1': '+1200',
+                'hero.stat1label': 'STAGIAIRES FORMÉS',
+                'hero.stat2': '+15',
+                'hero.stat2label': 'FILIÈRES',
+                'hero.stat3': '92%',
+                'hero.stat3label': 'TAUX DE RÉUSSITE',
+                'service.presentation': 'Présentation',
+                'service.p1': 'Chez FITAT, 70% du temps de formation est consacré à la pratique. Nos ateliers équipés, nos formateurs professionnels du terrain et notre suivi individualisé permettent à chaque stagiaire de sortir avec un vrai savoir-faire, prêt pour l\'emploi ou l\'entrepreneuriat.',
+                'service.p2': 'Découvrez ci-dessous l\'ensemble de nos filières et accédez au programme détaillé, à la durée et aux conditions d\'accès de chacune d\'entre elles.',
+                'service.propositionsTitle': 'Ce que nous proposons',
+                'service.prop1': 'Ateliers équipés et groupes réduits',
+                'service.prop2': 'Formateurs professionnels du terrain',
+                'service.prop3': 'Stages en entreprise et aide à l\'insertion',
+                'service.prop4': 'Attestations et diplômes reconnus',
+                'service.formationsTitle': 'Nos filières de formation',
+                'formation.coiffure': 'Coiffure & Esthétique',
+                'formation.coiffureDesc': 'Maîtrisez les techniques de coupe, de coloration et de soins esthétiques pour travailler en salon ou ouvrir le vôtre.',
+                'formation.couture': 'Couture & Stylisme',
+                'formation.coutureDesc': 'De la prise de mesures à la collection finie : apprenez le patronage, le montage et la création de modèles.',
+                'formation.patisserie': 'Pâtisserie & Cuisine',
+                'formation.patisserieDesc': 'Bases professionnelles de la pâtisserie, de la viennoiserie et de la cuisine marocaine et internationale.',
+                'formation.informatique': 'Informatique & Bureautique',
+                'formation.informatiqueDesc': 'Devenez autonome sur l\'ordinateur : bureautique, infographie, web et réseaux sociaux professionnels.',
+                'formation.electricite': 'Électricité & Maintenance',
+                'formation.electriciteDesc': 'Formation 100% pratique en atelier : installation, dépannage, froid et climatisation.',
+                'formation.gestion': 'Gestion & Entrepreneuriat',
+                'formation.gestionDesc': 'Comptabilité, marketing et pilotage : tout pour gérer une petite entreprise ou lancer son projet.',
+                'formation.viewDetails': 'Voir les détails →',
+                'service.infoTitle': 'Informations pratiques',
+                'service.filieres': 'Filières',
+                'service.filieresValue': '6 filières professionnalisantes',
+                'service.rythme': 'Rythme',
+                'service.rythmeValue': 'Présentiel, groupes réduits',
+                'service.diplome': 'Diplôme',
+                'service.diplomeValue': 'Attestations & diplômes reconnus',
+                'service.inscription': 'Inscription',
+                'service.inscriptionValue': 'Ouverte toute l\'année',
+                'service.quote': 'Demander un devis',
+                'service.viewWorks': 'Voir nos réalisations'
+            },
+            ar: {
+                'nav.home': 'الرئيسية',
+                'nav.services': 'الخدمات',
+                'nav.gallery': 'الإنجازات',
+                'nav.about': 'من نحن',
+                'nav.contact': 'اتصل بنا',
+                'back.services': 'جميع الخدمات',
+                'hero.badge': 'مركز تكوين معتمد',
+                'hero.title': 'تدرب على المهن التي توظف',
+                'hero.description': 'يرافق فتات التكوين الشباب والمحترفين بمسارات عملية، يشرف عليها مدربون خبراء وموجهة نحو التوظيف.',
+                'hero.btn.coiffure': 'الحلاقة والتجميل',
+                'hero.btn.couture': 'الخياطة والتصميم',
+                'hero.btn.patisserie': 'الحلويات والطبخ',
+                'hero.btn.informatique': 'المعلوميات والأعمال المكتبية',
+                'hero.btn.electricite': 'الكهرباء والصيانة',
+                'hero.btn.register': 'سجل الآن ←',
+                'hero.stat1': '+1200',
+                'hero.stat1label': 'متدرب مدرب',
+                'hero.stat2': '+15',
+                'hero.stat2label': 'مسارات',
+                'hero.stat3': '92%',
+                'hero.stat3label': 'معدل النجاح',
+                'service.presentation': 'العرض',
+                'service.p1': 'في فتات، 70% من وقت التكوين مخصص للممارسة. ورشاتنا المجهزة، ومدربونا المحترفون من الميدان، ومتابعتنا الفردية تمكن كل متدرب من الخروج بمهارة حقيقية، جاهز للتوظيف أو ريادة الأعمال.',
+                'service.p2': 'اكتشف أدناه جميع مساراتنا ووصل إلى البرنامج التفصيلي، والمدة، وشروط القبول لكل منها.',
+                'service.propositionsTitle': 'ما نقدمه',
+                'service.prop1': 'ورشات مجهزة ومجموعات صغيرة',
+                'service.prop2': 'مدربون محترفون من الميدان',
+                'service.prop3': 'تدريب في الشركات ومساعدة على الإدماج',
+                'service.prop4': 'شهادات ودبلومات معترف بها',
+                'service.formationsTitle': 'مسارات التكوين لدينا',
+                'formation.coiffure': 'الحلاقة والتجميل',
+                'formation.coiffureDesc': 'أتقن تقنيات القص والتلوين والعناية الجمالية للعمل في صالون أو افتتاح صالونك الخاص.',
+                'formation.couture': 'الخياطة والتصميم',
+                'formation.coutureDesc': 'من أخذ المقاسات إلى المجموعة النهائية: تعلم النمذجة والتجميع وإنشاء النماذج.',
+                'formation.patisserie': 'الحلويات والطبخ',
+                'formation.patisserieDesc': 'الأساسيات المهنية للحلويات والمعجنات والطبخ المغربي والدولي.',
+                'formation.informatique': 'المعلوميات والأعمال المكتبية',
+                'formation.informatiqueDesc': 'كن مستقلاً على الكمبيوتر: الأعمال المكتبية، والإنفوغراف، والويب، والشبكات الاجتماعية المهنية.',
+                'formation.electricite': 'الكهرباء والصيانة',
+                'formation.electriciteDesc': 'تكوين 100% عملي في الورشة: التركيب، وإصلاح الأعطال، والتبريد والتكييف.',
+                'formation.gestion': 'الإدارة وريادة الأعمال',
+                'formation.gestionDesc': 'المحاسبة، والتسويق، والتوجيه: كل شيء لإدارة شركة صغيرة أو إطلاق مشروعك.',
+                'formation.viewDetails': 'عرض التفاصيل ←',
+                'service.infoTitle': 'معلومات عملية',
+                'service.filieres': 'المسارات',
+                'service.filieresValue': '6 مسارات مهنية',
+                'service.rythme': 'الإيقاع',
+                'service.rythmeValue': 'حضوري، مجموعات صغيرة',
+                'service.diplome': 'الشهادة',
+                'service.diplomeValue': 'شهادات ودبلومات معترف بها',
+                'service.inscription': 'التسجيل',
+                'service.inscriptionValue': 'مفتوح طوال العام',
+                'service.quote': 'طلب عرض سعر',
+                'service.viewWorks': 'عرض إنجازاتنا'
+            }
+        };
+
+        let currentLang = 'fr';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            const html = document.documentElement;
+            
+            // Update HTML lang and dir attributes
+            html.setAttribute('lang', lang);
+            html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            
+            // Update font family for Arabic
+            if (lang === 'ar') {
+                document.body.style.fontFamily = 'var(--font-arabic), var(--font-sans), sans-serif';
+            } else {
+                document.body.style.fontFamily = 'var(--font-sans), sans-serif';
+            }
+            
+            // Update language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.dataset.i18n;
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+            
+            // Save language preference to localStorage
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
+            switchLanguage(savedLang);
+        });
+    </script>
+</body>
+</html>
